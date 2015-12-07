@@ -1,0 +1,26 @@
+{
+  "name": "mattdesl.github.com",
+  "version": "1.0.0",
+  "description": "my site",
+  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Matt DesLauriers",
+    "email": "dave.des@gmail.com",
+    "url": "https://github.com/mattdesl"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mattdesl/mattdesl.github.com.git"
+  },
+  "homepage": "https://github.com/mattdesl/mattdesl.github.com",
+  "bugs": {
+    "url": "https://github.com/mattdesl/mattdesl.github.com/issues"
+  }
+}
