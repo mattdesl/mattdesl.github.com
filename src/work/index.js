@@ -9,7 +9,7 @@ const css = require('dom-css')
 const domify = require('domify')
 const classes = require('dom-classes')
 const loadImage = require('img')
-const maxstache = require('maxstache')
+const minstache = require('minstache')
 
 const createGrid = require('./grid')
 const demos = require('./demos')
@@ -20,7 +20,7 @@ const container = document.querySelector('.work')
 
 const elements = gridData.map(item => {
   item.title = item.title || item.name
-  const el = domify(maxstache(gridHtml, item))
+  const el = domify(minstache(gridHtml, item))
   const src = `assets/work/${item.name}.jpg`
   const imageContainer = el.querySelector('.image')
   imageLoader(src, imageContainer)

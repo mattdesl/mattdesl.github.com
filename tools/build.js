@@ -7,30 +7,46 @@ var lessStream = require('less-css-stream')
 var AutoPrefix = require('less-plugin-autoprefix')
 var concat = require('concat-stream')
 
+var isProduction = process.env.NODE_ENV === 'production'
 var transforms = [
   require('babelify'),
-  require('hbsfy'),
+  require('loose-envify'),
   require('brfs')
 ]
+
+if (isProduction) {
+  transforms.push(
+    require('unreachable-branch-transform')
+  )
+}
 
 var entry = 'src/index.js'
 var lessEntry = 'src/less/main.less'
 var cssOutput = 'app/main.css'
 var output = 'app/bundle.js'
-var isProduction = process.env.NODE_ENV === 'production'
 
 if (isProduction) {
   compileLESS()
 
+  var discify = process.env.DISCIFY === '1'
   var b = browserify(entry, {
-    fullPaths: process.env.DISCIFY === '1'
+    fullPaths: discify
   })
   transforms.forEach(t => b.transform(t))
+  if (!discify) {
+    b.plugin(require('bundle-collapser/plugin'));
+  }
+
   console.error('building', entry)
   b.bundle((err, src) => {
     if (err) return bail(err)
     console.error('compressing', entry)
-    src = UglifyJS.minify(src.toString(), { fromString: true }).code
+    src = UglifyJS.minify(src.toString(), {
+      compress: true,
+      mangle: true,
+      fromString: true
+    }).code
+
     fs.writeFile(path.resolve(output), src, err => {
       if (err) return bail(err)
       console.error('finished writing', output)
