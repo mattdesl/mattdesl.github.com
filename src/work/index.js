@@ -1,9 +1,16 @@
+const gridHtml = `
+  <figure class="grid-item">
+    <div class="image"></div>
+    <div class="title">{{title}}</div>
+  </figure>
+`.trim()
+
 const css = require('dom-css')
 const domify = require('domify')
 const classes = require('dom-classes')
 const loadImage = require('img')
+const maxstache = require('maxstache')
 
-const gridItem = require('./grid-item.hbs')
 const createGrid = require('./grid')
 const demos = require('./demos')
 const gridData = require('../data/works.json')
@@ -13,7 +20,7 @@ const container = document.querySelector('.work')
 
 const elements = gridData.map(item => {
   item.title = item.title || item.name
-  const el = domify(gridItem(item))
+  const el = domify(maxstache(gridHtml, item))
   const src = `assets/work/${item.name}.jpg`
   const imageContainer = el.querySelector('.image')
   imageLoader(src, imageContainer)

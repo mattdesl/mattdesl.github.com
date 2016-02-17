@@ -22,7 +22,9 @@ var isProduction = process.env.NODE_ENV === 'production'
 if (isProduction) {
   compileLESS()
 
-  var b = browserify(entry)
+  var b = browserify(entry, {
+    fullPaths: process.env.DISCIFY === '1'
+  })
   transforms.forEach(t => b.transform(t))
   console.error('building', entry)
   b.bundle((err, src) => {
@@ -41,7 +43,8 @@ if (isProduction) {
     serve: 'bundle.js',
     dir: 'app',
     browserify: { transform: transforms }
-  }).live()
+  })
+    // .live()
     .watch([ 'app/index.html', 'app/main.css', lessEntry ])
     .on('watch', (ev, file) => {
       if (/\.less$/i.test(file)) {
