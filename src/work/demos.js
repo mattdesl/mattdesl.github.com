@@ -23,6 +23,10 @@ demoClose.addEventListener('click', ev => {
   module.exports.hide()
 }, false)
 
+// FF 47+ has a bug where changing the height of the parent
+// will not mask the iframe...
+var isFF = /FireFox/i.test(navigator.userAgent)
+
 // iOS8-9.2 has a bug that constantly resizes the iframe
 var iOS = /(iPad|iPhone|iPod)/g.test(navigator.userAgent)
 const updateSize = () => {
@@ -48,7 +52,7 @@ function show (item) {
   css(document.body, 'overflow', 'hidden') // lock scroll
   css(iframe, 'visibility', 'hidden') // hide content
   css(iconContainer, 'color', item.dark ? 'white' : 'black')
-  css(iframe, 'background', item.dark ? 'black' : 'white')
+  css(iframe, 'background', 'white')
   css(demoContainer, 'display', 'block') // show fill
 
   containerTimeline.cancel()
@@ -58,19 +62,27 @@ function show (item) {
     duration: 0.25
   }).on('update', updateContainer)
     .on('cancelling', () => tween.removeAllListeners('complete'))
-    .on('complete', () => {
-      updateSize()
-      iframe.onload = () => {
-        setTimeout(() => closer.show(), 150)
-        css(iframe, 'visibility', 'visible')
-        console.log('laoded')
-      }
-      iframe.onerror = () => {
-        console.error('could not load')
-        module.exports.hide()
-      }
-      iframe.src = item.url
+    .once('start', () => {
+      // Delay a bit to avoid jank
+      setTimeout(() => runDemo(), 150)
     })
+  
+  function runDemo () {
+    updateSize()
+    css(iframe, 'visibility', 'visible')
+    iframe.onload = () => {
+      setTimeout(() => closer.show(), 150)
+    }
+    setTimeout(() => { // Timeout for onload in case we have slow WiFi
+      iframe.onload = undefined
+      closer.show()
+    }, 1500)
+    iframe.onerror = () => {
+      console.error('could not load')
+      module.exports.hide()
+    }
+    iframe.src = item.url
+  }
 }
 
 module.exports.hide = hide
@@ -85,7 +97,7 @@ function hide () {
   const tween = containerTimeline.to(tweenTarget, {
     value: 0,
     z: 0,
-    duration: 0.25
+    duration: isFF ? 0 : 0.25
   }).on('update', updateContainer)
     .on('cancelling', () => tween.removeAllListeners('complete'))
     .on('complete', () => {
@@ -103,6 +115,8 @@ function updateContainer (ev) {
 
 function createCloseController () {
   const target = { value: 0 }
+  update()
+
   return {
     show () {
       css(iconContainer, 'display', 'block')
