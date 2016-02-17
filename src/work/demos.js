@@ -23,11 +23,24 @@ demoClose.addEventListener('click', ev => {
   module.exports.hide()
 }, false)
 
+// iOS8-9.2 has a bug that constantly resizes the iframe
+var iOS = /(iPad|iPhone|iPod)/g.test(navigator.userAgent)
+const updateSize = () => {
+  if (!iOS || !currentDemo) return
+  css(currentDemo, 'width', window.innerWidth)
+  css(currentDemo, 'height', window.innerHeight)
+}
+
+window.addEventListener('resize', updateSize, false);
+
 module.exports.show = show
 function show (item) {
   if (currentDemo) return
 
   var iframe = document.createElement('iframe')
+  iframe.setAttribute('allowfullscreen', '')
+  iframe.setAttribute('onmousewheel', '')
+  iframe.setAttribute('scrolling', 'no')
   currentDemo = iframe
   demoLink.setAttribute('href', item.repository)
 
@@ -46,6 +59,7 @@ function show (item) {
   }).on('update', updateContainer)
     .on('cancelling', () => tween.removeAllListeners('complete'))
     .on('complete', () => {
+      updateSize()
       iframe.onload = () => {
         setTimeout(() => closer.show(), 150)
         css(iframe, 'visibility', 'visible')
