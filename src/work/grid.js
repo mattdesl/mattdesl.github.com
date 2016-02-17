@@ -31,7 +31,6 @@ module.exports = function gridItems (grid, cells, opt = {}) {
   function resizeTo (cols, rows) {
     const padding = api.padding
     const margin = api.margin
-    console.log(margin, padding)
     const padx = padding * (cols + 1)
     const pady = padding * (rows + 1)
 

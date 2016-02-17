@@ -60,7 +60,7 @@ if (isProduction) {
     dir: 'app',
     browserify: { transform: transforms }
   })
-    // .live()
+    .live()
     .watch([ 'app/index.html', 'app/main.css', lessEntry ])
     .on('watch', (ev, file) => {
       if (/\.less$/i.test(file)) {

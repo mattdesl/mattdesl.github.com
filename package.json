@@ -66,7 +66,7 @@
     "start": "node tools/build",
     "build": "cross-env NODE_ENV=production node tools/build",
     "visualize": "cross-env DISCIFY=1 npm run build && discify --open < app/bundle.js",
-    "deploy": "surge -p app"
+    "deploy": "npm run build && surge -p app"
   },
   "keywords": [],
   "repository": {
