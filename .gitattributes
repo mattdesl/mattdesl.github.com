@@ -31,3 +31,4 @@ assets/codevember/mattdesl-codevember-6.png filter=lfs diff=lfs merge=lfs -text
 assets/codevember/mattdesl-codevember-7.png filter=lfs diff=lfs merge=lfs -text
 assets/codevember/mattdesl-codevember-8.png filter=lfs diff=lfs merge=lfs -text
 assets/codevember/mattdesl-codevember-9.png filter=lfs diff=lfs merge=lfs -text
+*.jpg filter=lfs diff=lfs merge=lfs -text
