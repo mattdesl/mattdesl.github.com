@@ -41,6 +41,8 @@ module.exports.show = show
 function show (item) {
   if (currentDemo) return
 
+  window.history.pushState(item, item.title)
+
   var iframe = document.createElement('iframe')
   iframe.setAttribute('allowfullscreen', '')
   iframe.setAttribute('onmousewheel', '')
@@ -51,8 +53,8 @@ function show (item) {
   demoContainer.insertBefore(iframe, demoContainer.firstChild)
   css(document.body, 'overflow', 'hidden') // lock scroll
   css(iframe, 'visibility', 'hidden') // hide content
-  css(iconContainer, 'color', item.dark ? 'white' : 'black')
   css(iframe, 'background', 'white')
+  css(iconContainer, 'color', item.dark ? 'white' : 'black')
   css(demoContainer, 'display', 'block') // show fill
 
   containerTimeline.cancel()
@@ -66,7 +68,7 @@ function show (item) {
       // Delay a bit to avoid jank
       setTimeout(() => runDemo(), 150)
     })
-  
+
   function runDemo () {
     updateSize()
     css(iframe, 'visibility', 'visible')

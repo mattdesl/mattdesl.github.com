@@ -27,6 +27,7 @@ const elements = gridData.map(item => {
 
   el.addEventListener('click', ev => {
     ev.preventDefault()
+    console.log(item)
     demos.show(item)
   }, false)
   return container.appendChild(el)
