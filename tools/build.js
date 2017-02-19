@@ -31,7 +31,8 @@ if (isProduction) {
 
   var discify = process.env.DISCIFY === '1'
   var b = browserify(entry, {
-    fullPaths: discify
+    fullPaths: discify,
+    debug: false
   })
   transforms.forEach(t => b.transform(t))
   if (!discify) {

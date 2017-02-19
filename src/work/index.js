@@ -4,7 +4,7 @@ const gridHtml = `
       <div class="grid-item-overlay">
         <div class="text">
           <div class="title">{{title}}</div>
-          <div class="info">{{!info}}</div>
+          <div class="info">{{info}}</div>
         </div>
       </div>
     </a>
@@ -15,7 +15,7 @@ const css = require('dom-css')
 const domify = require('domify')
 const classes = require('dom-classes')
 const loadImage = require('img')
-const minstache = require('minstache')
+const maxstache = require('maxstache')
 const assign = require('object-assign')
 
 const createGrid = require('./grid')
@@ -25,19 +25,12 @@ const DEFAULT_COLS = 2
 
 const container = document.querySelector('.work')
 
-const escape = (html) => {
-  return String(html)
-    .replace(/&/g, '&amp;')
-    .replace(/"/g, '&quot;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;');
-};
-
 const elements = gridData.map(item => {
   item = assign({}, item);
   item.title = item.title || item.name
   item.info = (item.info || '');
-  const el = domify(minstache(gridHtml, item))
+  const template = maxstache(gridHtml, item);
+  const el = domify(template)
   const ext = item.ext || 'jpg';
   const src = `assets/work/${item.name}.${ext}`
   const imageContainer = el.querySelector('.image')
