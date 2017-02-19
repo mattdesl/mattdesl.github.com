@@ -66,7 +66,7 @@
   "scripts": {
     "scrape-ghpages": "node tools/scrape-gh-cli.js mattdesl Jam3 stackgl --user=mattdesl --defaults tools/defaults.json --bare > src/data/gh-pages-demos.json",
     "start": "node tools/build",
-    "build": "browserify index.js | uglifyjs -m -c warnings=false > bundle.js",
+    "build": "NODE_ENV=production node tools/build",
     "visualize": "cross-env DISCIFY=1 npm run build && discify --open < app/bundle.js",
     "deploy": "npm run build && surge -p app"
   },
