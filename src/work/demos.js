@@ -1,5 +1,6 @@
 const css = require('dom-css')
 const createTimeline = require('tweenr')
+const classes = require('dom-classes')
 
 const tweenOpt = {
   defaultEase: 'expoOut'
@@ -16,7 +17,7 @@ const icons = [ demoClose, demoLink ]
 
 let currentDemo
 const tweenTarget = { value: 0, z: 0 }
-
+const iframePadding = 0;
 const closer = createCloseController()
 
 demoClose.addEventListener('click', ev => {
@@ -27,12 +28,10 @@ demoClose.addEventListener('click', ev => {
 // will not mask the iframe...
 var isFF = /FireFox/i.test(navigator.userAgent)
 
-// iOS8-9.2 has a bug that constantly resizes the iframe
-var iOS = /(iPad|iPhone|iPod)/g.test(navigator.userAgent)
 const updateSize = () => {
-  if (!iOS || !currentDemo) return
-  css(currentDemo, 'width', window.innerWidth)
-  css(currentDemo, 'height', window.innerHeight)
+  if (!currentDemo) return
+  css(currentDemo, 'width', window.innerWidth - iframePadding * 2)
+  css(currentDemo, 'height', window.innerHeight - iframePadding * 2)
 }
 
 window.addEventListener('resize', updateSize, false);
@@ -41,19 +40,25 @@ module.exports.show = show
 function show (item) {
   if (currentDemo) return
 
-  window.history.pushState(item, item.title)
+  // window.history.pushState(item, item.title)
 
-  var iframe = document.createElement('iframe')
+  const iframe = document.createElement('iframe')
   iframe.setAttribute('allowfullscreen', '')
   iframe.setAttribute('onmousewheel', '')
   iframe.setAttribute('scrolling', 'no')
   currentDemo = iframe
   demoLink.setAttribute('href', item.repository)
 
+  classes.remove(demoContainer, 'open');
   demoContainer.insertBefore(iframe, demoContainer.firstChild)
   css(document.body, 'overflow', 'hidden') // lock scroll
-  css(iframe, 'visibility', 'hidden') // hide content
-  css(iframe, 'background', 'white')
+  css(iframe, {
+    background: 'white',
+    visibility: 'hidden',
+    top: iframePadding,
+    left: iframePadding,
+    position: 'absolute'
+  });
   css(iconContainer, 'color', item.dark ? 'white' : 'black')
   css(demoContainer, 'display', 'block') // show fill
 
@@ -65,6 +70,7 @@ function show (item) {
   }).on('update', updateContainer)
     .on('cancelling', () => tween.removeAllListeners('complete'))
     .once('start', () => {
+      classes.add(demoContainer, 'open');
       // Delay a bit to avoid jank
       setTimeout(() => runDemo(), 150)
     })
@@ -93,7 +99,7 @@ function hide () {
 
   css(document.body, 'overflow', '') // unlock scroll
   demoLink.setAttribute('href', '')
-
+  classes.remove(demoContainer, 'open');
   closer.hide()
   containerTimeline.cancel()
   const tween = containerTimeline.to(tweenTarget, {
@@ -112,7 +118,7 @@ function hide () {
 function updateContainer (ev) {
   const { target } = ev
   const { value } = target
-  css(demoContainer, 'height', `${Math.round(value * 100)}%`)
+  // css(demoContainer, 'height', `${Math.round(value * 100)}%`)
 }
 
 function createCloseController () {

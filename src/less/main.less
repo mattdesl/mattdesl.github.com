@@ -3,8 +3,9 @@
 @import (inline) "./fonts.less";
 @import "./grid.less";
 
-.animate (@elem: all, @delay: 0.2s, @ease: cubic-bezier(0.190, 1.000, 0.220, 1.000)) {
-  transition: @elem @delay @ease;
+.animate (@elem: all, @duration: 0.2s, @ease: cubic-bezier(0.190, 1.000, 0.220, 1.000), @delay: 0s) {
+  transition: @elem @duration @ease;
+  transition-delay: @delay;
 }
 
 .headerFont {
@@ -62,7 +63,7 @@ header {
 }
 
 .container {
-  a {
+  a:not(.image) {
     font-weight: 500;
     color: #43D8BC;
     position: relative;
@@ -74,7 +75,7 @@ header {
       width: 0%;
       .animate(width, 0.1s);
     }
-    &:hover:after {
+    .no-touch &:hover:after {
       .underline;
       width: 100%;
       .animate(width, 0.2s);
@@ -125,7 +126,7 @@ li:before {
   .animate(transform, 0.5s);
   transform: scale(0.8, 0.8);
     
-  &:hover {
+  .no-touch &:hover {
     .animate(transform, 0.5s);
     transform: scale(1.0, 1.0);
   }

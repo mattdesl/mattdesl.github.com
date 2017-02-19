@@ -18,6 +18,7 @@
   float: left;
   display: inline;
   position: absolute;
+  overflow: hidden;
   margin: 0px;
   cursor: pointer;
 }
@@ -37,23 +38,80 @@
   z-index: 0;
 }
 
-.grid-item:hover {
+/*.grid-item:hover {
   .image {
     .animate(opacity, 0.4s);
     opacity: 0.5;
   }
-}
+}*/
 
-.grid-item > .title {
-  display: none;
-  font-size: 24px;
-  text-align: center;
+.grid-item-overlay {
   color: #000;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  .animate(opacity, 0.8s);
+  opacity: 0.0;
+  display: table;
+
+  font-weight: 500;
+  font-style: normal;
+  text-decoration: none; 
+
+  box-sizing: border-box;
+
+  .no-touch &:hover {
+    .animate(opacity, 0.8s);
+    opacity: 1.0;
+
+    .text {
+      .animate(@elem:all, @duration:0.8s, @delay:0.125s);
+      opacity: 1;
+      transform: translateY(0px) skewX(0deg);
+      // transform: translateY(0px);
+    }
+  }
+
+  &::before {
+    width: 100%;
+    height: 100%;
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.9;
+    background: #fff;
+  }
 }
 
-.grid-item {
-  
+.grid-item-overlay > .text {
+  padding: 20px;
+  display: table-cell;
+  vertical-align: middle;
+  .animate(@elem:all, @duration:0.8s, @delay:0.0s);
+  opacity: 0;
+  transform: translateY(8px) skewY(2deg);
+}
+
+div.text > .title {
+  font-size: 16px;
+  font-family: 'LoveloBlack', 'Helvetica', sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  margin-bottom: 2px;
+}
+
+div.text > .info {
+  font-size: 12px;
+  text-align: center;
+  position: relative;
+  font-weight: normal;
+  max-width: 220px;
+  margin: auto
 }
 
 .image-loading {
@@ -72,6 +130,7 @@
 }
 
 iframe {
+  position: absolute;
   background: white;
   border: 0;
   outline: 0;
@@ -82,11 +141,20 @@ iframe {
   // .fill;
   display: none;
   transform-origin: 0% 0%;
-  height: 0%;
   z-index: 10;
   overflow: hidden;
-  // transform: scale(1.0, 0.0);
-  background: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  .animate(background, 0.4s);
+  background: rgba(255, 255, 255, 0.0);
+}
+
+.demo-container.open {
+  .animate(background, 0.4s);
+  background: rgba(255, 255, 255, 0.75);
 }
 
 .demo-fill {

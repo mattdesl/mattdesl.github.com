@@ -1,7 +1,13 @@
 const gridHtml = `
   <figure class="grid-item">
-    <div class="image"></div>
-    <div class="title">{{title}}</div>
+    <a href="{{url}}" target="_blank" class="image">
+      <div class="grid-item-overlay">
+        <div class="text">
+          <div class="title">{{title}}</div>
+          <div class="info">{{!info}}</div>
+        </div>
+      </div>
+    </a>
   </figure>
 `.trim()
 
@@ -10,26 +16,32 @@ const domify = require('domify')
 const classes = require('dom-classes')
 const loadImage = require('img')
 const minstache = require('minstache')
+const assign = require('object-assign')
 
 const createGrid = require('./grid')
-const demos = require('./demos')
-const gridData = require('../data/works.json')
-const DEFAULT_COLS = 3
+// const demos = require('./demos')
+const gridData = require('../data/works.json').filter(d => d.visible !== false);
+const DEFAULT_COLS = 2
 
 const container = document.querySelector('.work')
 
+const escape = (html) => {
+  return String(html)
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+};
+
 const elements = gridData.map(item => {
+  item = assign({}, item);
   item.title = item.title || item.name
+  item.info = (item.info || '');
   const el = domify(minstache(gridHtml, item))
-  const src = `assets/work/${item.name}.jpg`
+  const ext = item.ext || 'jpg';
+  const src = `assets/work/${item.name}.${ext}`
   const imageContainer = el.querySelector('.image')
   imageLoader(src, imageContainer)
-
-  el.addEventListener('click', ev => {
-    ev.preventDefault()
-    console.log(item)
-    demos.show(item)
-  }, false)
   return container.appendChild(el)
 })
 

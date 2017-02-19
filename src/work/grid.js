@@ -35,11 +35,11 @@ module.exports = function gridItems (grid, cells, opt = {}) {
     const pady = padding * (rows + 1)
 
     // parent bounds
-    const width = clamp(window.innerWidth - margin * 2 - padx, minSize[0], maxSize[0])
+    const width = Math.ceil(clamp(window.innerWidth - margin * 2 - padx, minSize[0], maxSize[0]))
     // const height = clamp(window.innerHeight - margin * 2 - pady, minSize[1], maxSize[1])
 
-    const cellWidth = clamp(width / cols, minCellSize[0], maxCellSize[0])
-    const cellHeight = clamp(cellWidth / aspect, minCellSize[1], maxCellSize[1])
+    const cellWidth = Math.ceil(clamp(width / cols, minCellSize[0], maxCellSize[0]))
+    const cellHeight = Math.ceil(clamp(cellWidth / aspect, minCellSize[1], maxCellSize[1]))
 
     const gridWidth = cellWidth * cols + padx
     const gridHeight = cellHeight * rows + pady

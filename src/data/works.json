@@ -1,19 +1,108 @@
 [
-{"url":"http://mattdesl.github.io/rust","repository":"https://github.com/mattdesl/rust","name":"rust"}
-,
-{"title": "#codevember 21","url":"http://mattdesl.github.io/codevember/21.html","repository":"http://mattdesl.github.io/codevember/","name":"mattdesl-codevember-21"}
-,
-{"title": "polartone","url":"http://mattdesl.github.io/spins/?preset=3","repository":"https://github.com/mattdesl/spins","name":"spins"}
-,
-{"dark": true, "title": "#codevember 7","url":"http://mattdesl.github.io/codevember/7.html","repository":"http://mattdesl.github.io/codevember/","name":"mattdesl-codevember-7"}
-,
-{"dark": true, "title": "#codevember 27","url":"http://mattdesl.github.io/codevember/27.html","repository":"http://mattdesl.github.io/codevember/","name":"mattdesl-codevember-27"}
-,
-{"dark": true, "url":"http://mattdesl.github.io/svg-mesh-3d/","repository":"https://github.com/mattdesl/svg-mesh-3d","name":"svg-mesh-3d"}
-,
-{"title": "#codevember 29","url":"http://mattdesl.github.io/codevember/30.html","repository":"http://mattdesl.github.io/codevember/","name":"mattdesl-codevember-30"}
-,
-{"dark": true, "title": "#codevember 28","url":"http://mattdesl.github.io/codevember/28.html","repository":"http://mattdesl.github.io/codevember/","name":"mattdesl-codevember-28"}
-,
-{"dark": true, "url":"http://mattdesl.github.io/xmas/","repository":"https://github.com/mattdesl/xmas","name":"xmas"}
+    {
+      "url":"https://vimeo.com/186230161",
+      "name":"accenture",
+      "title": "Camera Futura",
+      "info":"A real-time artwork displayed at The Louvre Museum in Paris. Produced by <em>Bright</em>."
+   },
+   {
+      "title":"Audiograph",
+      "url":"http://audiograph.xyz/",
+      "repository":"https://github.com/mattdesl/audiograph.xyz",
+      "name":"audiograph",
+      "info": "A visual exploration of Pilotpriest's 2016 album, <em>TRANS</em>."
+   },
+   {
+      "title":"THX",
+      "url":"http://thx.com/",
+      "name":"thx",
+      "info": "A WebGL banner for THX's new website."
+   },
+   {
+      "title":"Mozilla GDC 2016",
+      "url":"http://www.jam3.com/work/mozilla-webgl/",
+      "name":"mozilla",
+      "info": "A WebGL2 tech demo for Mozilla FireFox, shown at GDC 2016."
+   },
+   {
+      "title":"color-wander",
+      "url":"http://color-wander.surge.sh/",
+      "repository":"https://github.com/mattdesl/color-wander",
+      "name":"colorwander",
+      "info": "An open-source generative artwork in Node.js and the browser."
+   },
+   {
+      "visible": true,
+      "title":"Aurora",
+      "url":"https://aurora.jam3.net/",
+      "name":"aurora",
+      "info": "A WebVR audio-visual experience for Google Cardboard."
+   },
+   {
+      "visible": false,
+      "url":"http://mattdesl.github.io/rust",
+      "repository":"https://github.com/mattdesl/rust",
+      "name":"rust",
+      "info":"A small experiment with shader-based motion graphics."
+   },
+   {
+      "visible": false,
+      "title":"#codevember 21",
+      "url":"http://mattdesl.github.io/codevember/21.html",
+      "repository":"http://mattdesl.github.io/codevember/",
+      "name":"mattdesl-codevember-21"
+   },
+   {
+      "visible": false,
+      "dark":true,
+      "title":"#codevember 7",
+      "url":"http://mattdesl.github.io/codevember/7.html",
+      "repository":"http://mattdesl.github.io/codevember/",
+      "name":"mattdesl-codevember-7"
+   },
+   {
+      "visible": false,
+      "dark":true,
+      "title":"#codevember 27",
+      "url":"http://mattdesl.github.io/codevember/27.html",
+      "repository":"http://mattdesl.github.io/codevember/",
+      "name":"mattdesl-codevember-27"
+   },
+   {
+      "visible": false,
+      "dark":true,
+      "url":"http://mattdesl.github.io/svg-mesh-3d/",
+      "repository":"https://github.com/mattdesl/svg-mesh-3d",
+      "name":"svg-mesh-3d"
+   },
+   {
+      "visible": false,
+      "title":"#codevember 29",
+      "url":"http://mattdesl.github.io/codevember/30.html",
+      "repository":"http://mattdesl.github.io/codevember/",
+      "name":"mattdesl-codevember-30"
+   },
+   {
+      "visible": false,
+      "dark":true,
+      "title":"#codevember 28",
+      "url":"http://mattdesl.github.io/codevember/28.html",
+      "repository":"http://mattdesl.github.io/codevember/",
+      "name":"mattdesl-codevember-28"
+   },
+   {
+      "visible": false,
+      "dark":true,
+      "url":"http://mattdesl.github.io/xmas/",
+      "repository":"https://github.com/mattdesl/xmas",
+      "name":"xmas"
+   },
+   {
+      "visible": false,
+      "title":"polartone",
+      "url":"http://mattdesl.github.io/spins/",
+      "repository":"https://github.com/mattdesl/spins",
+      "name":"spins",
+      "info": "A real-time audio visualizer experiment."
+   },
 ]

@@ -22,6 +22,7 @@ if (isProduction) {
 
 var entry = 'src/index.js'
 var lessEntry = 'src/less/main.less'
+var lessGlob = 'src/less/**/*.less'
 var cssOutput = 'app/main.css'
 var output = 'app/bundle.js'
 
@@ -61,7 +62,7 @@ if (isProduction) {
     browserify: { transform: transforms }
   })
     .live()
-    .watch([ 'app/index.html', 'app/main.css', lessEntry ])
+    .watch([ 'app/index.html', 'app/main.css', lessGlob ])
     .on('watch', (ev, file) => {
       if (/\.less$/i.test(file)) {
         compileLESS()
