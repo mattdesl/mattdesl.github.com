@@ -1,6 +1,7 @@
 const gridHtml = `
   <figure class="grid-item">
     <a href="{{url}}" target="_blank" class="image">
+      <div class="loader"></div>
       <div class="grid-item-overlay">
         <div class="text">
           <div class="title">{{title}}</div>
@@ -13,8 +14,9 @@ const gridHtml = `
 
 const css = require('dom-css')
 const domify = require('domify')
+const mapLimit = require('map-limit')
 const classes = require('dom-classes')
-const loadImage = require('img')
+const loadImage = require('load-img')
 const maxstache = require('maxstache')
 const assign = require('object-assign')
 
@@ -25,7 +27,7 @@ const DEFAULT_COLS = 2
 
 const container = document.querySelector('.work')
 
-const elements = gridData.map(item => {
+const gridCells = gridData.map(item => {
   item = assign({}, item);
   item.title = item.title || item.name
   item.info = (item.info || '');
@@ -34,8 +36,25 @@ const elements = gridData.map(item => {
   const ext = item.ext || 'jpg';
   const src = `assets/work/${item.name}.${ext}`
   const imageContainer = el.querySelector('.image')
-  imageLoader(src, imageContainer)
-  return container.appendChild(el)
+  const spinner = el.querySelector('.loader')
+  return {
+    element: container.appendChild(el),
+    src: src,
+    spinner: spinner,
+    imageContainer: imageContainer
+  }
+})
+
+const elements = gridCells.map(cell => cell.element)
+
+const asyncLimit = 2
+mapLimit(gridCells, asyncLimit, (cell, next) => {
+  imageLoader(cell.src, cell.imageContainer, cell.spinner, err => {
+    if (err) console.error(err)
+    next(null)
+  })
+}, () => {
+  console.log('all finished')
 })
 
 const grid = createGrid(container, elements, {
@@ -63,12 +82,12 @@ const grid = createGrid(container, elements, {
 
 grid.resize()
 
-function imageLoader (src, element) {
-  classes.add(element, 'image-loading')
-  loadImage(src, (err, img) => {
-    if (err) throw err
-    classes.remove(element, 'image-loading')
-    classes.add(element, 'image-loaded')
+function imageLoader (src, element, spinner, cb) {
+  classes.add(spinner, 'image-loading')
+  loadImage(src, (err) => {
+    classes.remove(spinner, 'image-loading')
+    if (err) return cb(err)
+    classes.add(spinner, 'image-loaded')
 
     css(element, {
       backgroundImage: `url("${src}")`,
@@ -76,5 +95,6 @@ function imageLoader (src, element) {
       backgroundRepeat: 'none',
       backgroundPosition: 'center center'
     })
+    cb(null)
   })
 }
