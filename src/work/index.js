@@ -73,8 +73,6 @@ mapLimit(gridCells, asyncLimit, (cell, next) => {
     if (err) console.error(err)
     next(null)
   })
-}, () => {
-  console.log('all finished')
 })
 
 const grid = createGrid(container, elements, {
