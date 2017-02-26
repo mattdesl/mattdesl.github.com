@@ -64,11 +64,13 @@
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
     "normalize-css": "^2.3.1",
+    "optimize-js": "^1.0.3",
     "pump": "^1.0.1",
     "rgb-hex": "^2.1.0",
     "surge": "^0.17.7",
     "through2": "^2.0.1",
     "uglify-js": "^2.6.1",
+    "unassertify": "^2.0.4",
     "unreachable-branch-transform": "^0.5.0"
   },
   "scripts": {

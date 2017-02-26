@@ -6,13 +6,19 @@ var path = require('path')
 var lessStream = require('less-css-stream')
 var AutoPrefix = require('less-plugin-autoprefix')
 var concat = require('concat-stream')
+var optimize = require('optimize-js')
 
 var isProduction = process.env.NODE_ENV === 'production'
+var isDiscify = process.env.DISCIFY === '1'
 var transforms = [
   require('babelify'),
   require('loose-envify'),
   require('brfs')
 ]
+
+if (isProduction || isDiscify) {
+  transforms.push([ require('unassertify'), { global: true } ]);
+}
 
 if (isProduction) {
   transforms.push(
@@ -29,13 +35,12 @@ var output = 'app/bundle.js'
 if (isProduction) {
   compileLESS()
 
-  var discify = process.env.DISCIFY === '1'
   var b = browserify(entry, {
-    fullPaths: discify,
+    fullPaths: isDiscify,
     debug: false
   })
   transforms.forEach(t => b.transform(t))
-  if (!discify) {
+  if (!isDiscify) {
     b.plugin(require('bundle-collapser/plugin'));
   }
 
@@ -43,11 +48,13 @@ if (isProduction) {
   b.bundle((err, src) => {
     if (err) return bail(err)
     console.error('compressing', entry)
+  
     src = UglifyJS.minify(src.toString(), {
       compress: true,
       mangle: true,
       fromString: true
     }).code
+    src = optimize(src)
 
     fs.writeFile(path.resolve(output), src, err => {
       if (err) return bail(err)

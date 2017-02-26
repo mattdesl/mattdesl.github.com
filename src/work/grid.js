@@ -18,7 +18,7 @@ module.exports = function gridItems (grid, cells, opt = {}) {
     padding, margin, resize
   }
 
-  process.nextTick(resize)
+  setTimeout(resize, 0)
   window.addEventListener('resize', resize)
 
   return api
