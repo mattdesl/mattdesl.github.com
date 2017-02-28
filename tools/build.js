@@ -22,7 +22,7 @@ if (isProduction || isDiscify) {
 
 if (isProduction) {
   transforms.push(
-    require('unreachable-branch-transform')
+    [ require('unreachable-branch-transform'), { global: true } ]
   )
 }
 
