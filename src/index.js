@@ -5,4 +5,8 @@ if (!isMobile) {
   classes.add(document.documentElement, 'no-touch');
 }
 
-require('./work')
+require('./work');
+
+const email = document.querySelector('#email');
+email.style.display = '';
+email.querySelector('a').href = 'mailto:dave.des@gmail.com';
