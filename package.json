@@ -43,7 +43,7 @@
     "babelify": "^7.3.0",
     "brfs": "^1.4.3",
     "browserify": "^14.1.0",
-    "budo": "^8.0.4",
+    "budo": "^10.0.4",
     "bundle-collapser": "^1.2.1",
     "concat-stream": "^1.5.1",
     "cross-env": "^1.0.7",
