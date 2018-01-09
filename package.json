@@ -17,7 +17,7 @@
   "dependencies": {
     "babel-polyfill": "^6.23.0",
     "brfs": "^1.4.3",
-    "canvas": "^1.6.3",
+    "canvas": "^1.6.9",
     "clamp": "^1.0.1",
     "color-style": "^1.0.0",
     "dom-classes": "0.0.1",
@@ -48,7 +48,6 @@
     "concat-stream": "^1.5.1",
     "cross-env": "^1.0.7",
     "disc": "^1.3.2",
-    "electron-prebuilt": "^0.36.7",
     "get-image-pixels": "^1.0.1",
     "get-pixels": "^3.3.0",
     "get-rgba-palette": "^2.0.1",
@@ -75,8 +74,8 @@
   },
   "scripts": {
     "scrape-ghpages": "node tools/scrape-gh-cli.js mattdesl Jam3 stackgl --user=mattdesl --defaults tools/defaults.json --bare > src/data/gh-pages-demos.json",
-    "start": "node tools/build",
-    "build": "NODE_ENV=production node tools/build",
+    "start": "node tools/atlas.js && node tools/build",
+    "build": "node tools/atlas.js && NODE_ENV=production node tools/build",
     "visualize": "cross-env DISCIFY=1 npm run build && discify --open < app/bundle.js",
     "deploy": "npm run build && surge -p app"
   },

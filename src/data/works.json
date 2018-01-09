@@ -1,41 +1,56 @@
 [
-    {
-      "url":"https://vimeo.com/186230161",
-      "name":"accenture",
-      "title": "Camera Futura",
-      "info":"A real-time artwork displayed at The Louvre Museum in Paris. Produced by <em>Bright</em>."
-   },
-   {
-      "title":"Audiograph",
-      "url":"http://audiograph.xyz/",
-      "repository":"https://github.com/mattdesl/audiograph.xyz",
-      "name":"audiograph",
-      "info": "A visual exploration of Pilotpriest's 2016 album, <em>TRANS</em>."
-   },
-   {
-      "title":"THX",
-      "url":"http://thx.com/",
-      "name":"thx",
-      "info": "A WebGL banner for THX's new website."
-   },
-   {
-      "title":"Mozilla GDC 2016",
-      "url":"http://www.jam3.com/work/mozilla-webgl/",
-      "name":"mozilla",
-      "info": "A WebGL2 tech demo for Mozilla FireFox, shown at GDC 2016."
-   },
-   {
-      "title":"color-wander",
-      "url":"http://color-wander.surge.sh/",
-      "repository":"https://github.com/mattdesl/color-wander",
-      "name":"colorwander",
-      "info": "An open-source generative artwork in Node.js and the browser."
-   },
-   {
-      "visible": true,
-      "title":"Aurora",
-      "url":"https://aurora.jam3.net/",
-      "name":"aurora",
-      "info": "A WebVR audio-visual experience for Google Cardboard."
-   }
+  {
+    "url": "https://vimeo.com/186230161",
+    "name": "accenture",
+    "title": "Camera Futura",
+    "info": "A real-time artwork displayed at The Louvre Museum in Paris. Produced by <em>Bright</em>."
+  },
+  {
+    "visible": false,
+    "title": "lumos",
+    "url": "http://www.cbc.ca/arts/art-is-lighting-up-the-old-ontario-place-grounds-all-winter-and-here-s-what-it-looks-like-1.4437789",
+    "name": "lumos1",
+    "info": "Public art installation & interactive sculpture on exhibition in Ontario Place, Toronto."
+  },
+  {
+    "visible": true,
+    "title": "MAIN FIELD",
+    "url": "https://www.behance.net/gallery/60533777/MAIN-FIELD",
+    "name": "mainfield",
+    "info": "A data art & pen plotter series visualizing Earth's magnetic field from 1900 to 2020."
+  },
+  {
+    "title": "Audiograph",
+    "url": "http://audiograph.xyz/",
+    "repository": "https://github.com/mattdesl/audiograph.xyz",
+    "name": "audiograph",
+    "info": "A visual exploration of Pilotpriest's 2016 album, <em>TRANS</em>."
+  },
+  {
+    "title": "THX",
+    "url": "http://thx.com/",
+    "name": "thx",
+    "info": "A WebGL banner for THX's new website."
+  },
+  {
+    "title": "Mozilla GDC 2016",
+    "url": "http://www.jam3.com/work/mozilla-webgl/",
+    "name": "mozilla",
+    "info": "A WebGL2 tech demo for Mozilla FireFox, shown at GDC 2016."
+  },
+  {
+    "visible": false,
+    "title": "color-wander",
+    "url": "http://color-wander.surge.sh/",
+    "repository": "https://github.com/mattdesl/color-wander",
+    "name": "colorwander",
+    "info": "An open-source generative artwork in Node.js and the browser."
+  },
+  {
+    "visible": true,
+    "title": "Aurora",
+    "url": "https://aurora.jam3.net/",
+    "name": "aurora",
+    "info": "A WebVR audio-visual experience for Google Cardboard."
+  }
 ]
