@@ -53,7 +53,15 @@ const gridCells = gridData.map(item => {
     const canvas = placeholderData.canvas;
     placeholderElement.appendChild(canvas);
     // when blur occurs, animate in the canvas
-    placeholderData.onblur = () => classes.remove(placeholderElement, 'animate-out');
+    placeholderData.onblur = () => {
+      placeholderData.timeline.cancel().to(placeholderData.tween, {
+        duration: 0.15,
+        ease: 'quadOut',
+        value: 1
+      }).on('update', () => {
+        placeholderElement.style.opacity = placeholderData.tween.value;
+      });
+    };
   }
   return {
     file: `${item.name}.${ext}`,
@@ -117,7 +125,14 @@ function imageLoader (cell, cb) {
     // ensure placeholder will no longer appear
     placeholder.onblur = noop;
     // hide the placeholder
-    classes.add(placeholderElement, 'animate-out')
+    placeholder.timeline.cancel().to(placeholder.tween, {
+      duration: 0.5,
+      ease: 'quadOut',
+      value: 0
+    }).on('update', () => {
+      placeholderElement.style.opacity = placeholder.tween.value;
+    });
+    // classes.add(placeholderElement, 'animate-out')
 
     classes.remove(spinner, 'image-loading')
     if (err) return cb(err)

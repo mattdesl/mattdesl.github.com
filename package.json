@@ -33,6 +33,7 @@
     "maxstache": "^1.0.7",
     "new-array": "^1.0.0",
     "object-assign": "^4.1.1",
+    "simplex-noise": "^2.3.0",
     "stackblur": "^1.0.0",
     "tweenr": "^2.1.3"
   },
