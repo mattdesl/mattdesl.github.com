@@ -1,15 +1,9 @@
 [
   {
-    "url": "https://vimeo.com/186230161",
-    "name": "accenture",
-    "title": "Camera Futura",
-    "info": "A real-time artwork displayed at The Louvre Museum in Paris. Produced by <em>Bright</em>."
-  },
-  {
-    "visible": false,
+    "visible": true,
     "title": "lumos",
     "url": "http://www.cbc.ca/arts/art-is-lighting-up-the-old-ontario-place-grounds-all-winter-and-here-s-what-it-looks-like-1.4437789",
-    "name": "lumos1",
+    "name": "lumos3",
     "info": "Public art installation & interactive sculpture on exhibition in Ontario Place, Toronto."
   },
   {
@@ -18,6 +12,19 @@
     "url": "https://www.behance.net/gallery/60533777/MAIN-FIELD",
     "name": "mainfield",
     "info": "A data art & pen plotter series visualizing Earth's magnetic field from 1900 to 2020."
+  },
+  {
+    "visible": true,
+    "title": "Crystal Towers",
+    "url": "https://www.behance.net/gallery/56908173/Crystal-Towers",
+    "name": "crystaltowers",
+    "info": "A generative algorithm that produces unique and data-driven 3D distributions of skyscraper heights in several major cities."
+  },
+  {
+    "url": "https://vimeo.com/186230161",
+    "name": "accenture",
+    "title": "Camera Futura",
+    "info": "A real-time artwork displayed at The Louvre Museum in Paris. Produced by <em>Bright</em>."
   },
   {
     "title": "Audiograph",
@@ -39,18 +46,18 @@
     "info": "A WebGL2 tech demo for Mozilla FireFox, shown at GDC 2016."
   },
   {
+    "visible": true,
+    "title": "Aurora",
+    "url": "https://aurora.jam3.net/",
+    "name": "aurora",
+    "info": "A WebVR audio-visual experience for Google Cardboard."
+  },
+  {
     "visible": false,
     "title": "color-wander",
     "url": "http://color-wander.surge.sh/",
     "repository": "https://github.com/mattdesl/color-wander",
     "name": "colorwander",
     "info": "An open-source generative artwork in Node.js and the browser."
-  },
-  {
-    "visible": true,
-    "title": "Aurora",
-    "url": "https://aurora.jam3.net/",
-    "name": "aurora",
-    "info": "A WebVR audio-visual experience for Google Cardboard."
   }
 ]
