@@ -9,4 +9,4 @@ require('./work');
 
 const email = document.querySelector('#email');
 email.style.display = '';
-email.querySelector('a').href = 'mailto:dave.des@gmail.com';
+email.querySelector('a').href = 'mailto:info@mattdesl.studio';
