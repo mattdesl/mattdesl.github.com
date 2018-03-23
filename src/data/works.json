@@ -8,6 +8,13 @@
   },
   {
     "visible": true,
+    "title": "Leaf Notes",
+    "url": "https://www.behance.net/gallery/63495499/Leaf-Notes-a-Tendril-Web-Toy",
+    "name": "webtoy",
+    "info": "An interactive web toy for Tendril's home page."
+  },
+  {
+    "visible": true,
     "title": "MAIN FIELD",
     "url": "https://www.behance.net/gallery/60533777/MAIN-FIELD",
     "name": "mainfield",
@@ -53,7 +60,7 @@
     "info": "A WebVR audio-visual experience for Google Cardboard."
   },
   {
-    "visible": false,
+    "visible": true,
     "title": "color-wander",
     "url": "http://color-wander.surge.sh/",
     "repository": "https://github.com/mattdesl/color-wander",
