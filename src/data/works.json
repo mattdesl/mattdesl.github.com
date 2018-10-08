@@ -29,10 +29,10 @@
   },
   {
     "visible": true,
-    "title": "Leaf Notes",
-    "url": "https://www.behance.net/gallery/63495499/Leaf-Notes-a-Tendril-Web-Toy",
-    "name": "webtoy",
-    "info": "An interactive web toy for Tendril's home page."
+    "title": "JSConf EU 2018",
+    "url": "https://vimeo.com/273222929",
+    "name": "jsconfeu",
+    "info": "Projection mapped generative graphics for JSConfEU 2018."
   },
   {
     "visible": true,
@@ -40,6 +40,13 @@
     "url": "https://www.behance.net/gallery/60533777/MAIN-FIELD",
     "name": "mainfield",
     "info": "A data art & pen plotter series visualizing Earth's magnetic field from 1900 to 2020."
+  },
+  {
+    "visible": true,
+    "title": "Leaf Notes",
+    "url": "https://www.behance.net/gallery/63495499/Leaf-Notes-a-Tendril-Web-Toy",
+    "name": "webtoy",
+    "info": "An interactive web toy for Tendril's home page."
   },
   {
     "visible": true,
