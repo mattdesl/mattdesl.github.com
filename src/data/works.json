@@ -22,6 +22,13 @@
   },
   {
     "visible": true,
+    "title": "KIKK AR Exhibition",
+    "url": "https://vimeo.com/299883293",
+    "name": "kikkar",
+    "info": "An augmented reality art exhibition shown during KIKK Festival 2018 in Namur, Belgium."
+  },
+  {
+    "visible": true,
     "title": "Enchanted Waters",
     "url": "https://vimeo.com/293333482",
     "name": "waters",
@@ -81,7 +88,7 @@
     "info": "A WebGL2 tech demo for Mozilla FireFox, shown at GDC 2016."
   },
   {
-    "visible": true,
+    "visible": false,
     "title": "Aurora",
     "url": "https://aurora.jam3.net/",
     "name": "aurora",
