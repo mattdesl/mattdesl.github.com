@@ -8,17 +8,23 @@
   },
   {
     "visible": true,
+    "title": "TEMPEST",
+    "url": "https://vimeo.com/317006348",
+    "name": "tempest",
+    "info": "An interactive audio-visual artwork shown during Reykjavik's 2019 Winter Light Festival."
+  },
+  {
+    "visible": true,
     "title": "N Dimension",
     "url": "https://www.behance.net/gallery/66922959/N-Dimension",
     "name": "ndimension",
     "info": "Interactive exhibition at the Art Gallery of Ontario for their annual \"Massive Party\" fundraising event."
   },
   {
-    "visible": true,
-    "title": "Bellwoods",
-    "url": "https://www.behance.net/gallery/70874747/Bellwoods",
-    "name": "bellwoods",
-    "info": "A generative art game for mobile & desktop.​​​​​​​​​​​​​​"
+    "url": "https://vimeo.com/186230161",
+    "name": "accenture",
+    "title": "Camera Futura",
+    "info": "A real-time artwork displayed at The Louvre Museum in Paris. Produced by <em>Bright</em>."
   },
   {
     "visible": true,
@@ -26,6 +32,13 @@
     "url": "https://vimeo.com/299883293",
     "name": "kikkar",
     "info": "An augmented reality art exhibition shown during KIKK Festival 2018 in Namur, Belgium."
+  },
+  {
+    "visible": true,
+    "title": "MAIN FIELD",
+    "url": "https://www.behance.net/gallery/60533777/MAIN-FIELD",
+    "name": "mainfield",
+    "info": "A data art & pen plotter series visualizing Earth's magnetic field from 1900 to 2020."
   },
   {
     "visible": true,
@@ -43,10 +56,10 @@
   },
   {
     "visible": true,
-    "title": "MAIN FIELD",
-    "url": "https://www.behance.net/gallery/60533777/MAIN-FIELD",
-    "name": "mainfield",
-    "info": "A data art & pen plotter series visualizing Earth's magnetic field from 1900 to 2020."
+    "title": "Bellwoods",
+    "url": "https://www.behance.net/gallery/70874747/Bellwoods",
+    "name": "bellwoods",
+    "info": "A generative art game for mobile & desktop.​​​​​​​​​​​​​​"
   },
   {
     "visible": true,
@@ -63,19 +76,7 @@
     "info": "A generative algorithm that produces unique and data-driven 3D distributions of skyscraper heights in several major cities."
   },
   {
-    "url": "https://vimeo.com/186230161",
-    "name": "accenture",
-    "title": "Camera Futura",
-    "info": "A real-time artwork displayed at The Louvre Museum in Paris. Produced by <em>Bright</em>."
-  },
-  {
-    "title": "Audiograph",
-    "url": "http://audiograph.xyz/",
-    "repository": "https://github.com/mattdesl/audiograph.xyz",
-    "name": "audiograph",
-    "info": "A visual exploration of Pilotpriest's 2016 album, <em>TRANS</em>."
-  },
-  {
+    "visible": false,
     "title": "THX",
     "url": "http://thx.com/",
     "name": "thx",
@@ -95,11 +96,18 @@
     "info": "A WebVR audio-visual experience for Google Cardboard."
   },
   {
+    "title": "Audiograph",
+    "url": "http://audiograph.xyz/",
+    "repository": "https://github.com/mattdesl/audiograph.xyz",
+    "name": "audiograph",
+    "info": "A visual exploration of Pilotpriest's 2016 album, <em>TRANS</em>."
+  },
+  {
     "visible": true,
     "title": "color-wander",
     "url": "http://color-wander.surge.sh/",
     "repository": "https://github.com/mattdesl/color-wander",
     "name": "colorwander",
     "info": "An open-source generative artwork in Node.js and the browser."
-  }
+  },
 ]
