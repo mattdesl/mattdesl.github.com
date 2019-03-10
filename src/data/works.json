@@ -109,5 +109,5 @@
     "repository": "https://github.com/mattdesl/color-wander",
     "name": "colorwander",
     "info": "An open-source generative artwork in Node.js and the browser."
-  },
+  }
 ]
