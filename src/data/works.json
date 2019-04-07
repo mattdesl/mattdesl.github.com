@@ -1,0 +1,113 @@
+[
+  {
+    "visible": true,
+    "title": "lumos",
+    "url": "https://www.behance.net/gallery/64751587/LUMOS-A-Reactive-Light-Sculpture",
+    "name": "lumos3",
+    "info": "Public art installation & interactive sculpture on exhibition in Ontario Place, Toronto."
+  },
+  {
+    "visible": true,
+    "title": "TEMPEST",
+    "url": "https://vimeo.com/317006348",
+    "name": "tempest",
+    "info": "An interactive audio-visual artwork shown during Reykjavik's 2019 Winter Light Festival."
+  },
+  {
+    "visible": true,
+    "title": "N Dimension",
+    "url": "https://www.behance.net/gallery/66922959/N-Dimension",
+    "name": "ndimension",
+    "info": "Interactive exhibition at the Art Gallery of Ontario for their annual \"Massive Party\" fundraising event."
+  },
+  {
+    "url": "https://vimeo.com/186230161",
+    "name": "accenture",
+    "title": "Camera Futura",
+    "info": "A real-time artwork displayed at The Louvre Museum in Paris. Produced by <em>Bright</em>."
+  },
+  {
+    "visible": true,
+    "title": "KIKK AR Exhibition",
+    "url": "https://vimeo.com/299883293",
+    "name": "kikkar",
+    "info": "An augmented reality art exhibition shown during KIKK Festival 2018 in Namur, Belgium."
+  },
+  {
+    "visible": true,
+    "title": "MAIN FIELD",
+    "url": "https://www.behance.net/gallery/60533777/MAIN-FIELD",
+    "name": "mainfield",
+    "info": "A data art & pen plotter series visualizing Earth's magnetic field from 1900 to 2020."
+  },
+  {
+    "visible": true,
+    "title": "Enchanted Waters",
+    "url": "https://vimeo.com/293333482",
+    "name": "waters",
+    "info": "An interactive public installation at Navy Pier in Chicago."
+  },
+  {
+    "visible": true,
+    "title": "JSConf EU 2018",
+    "url": "https://vimeo.com/273222929",
+    "name": "jsconfeu",
+    "info": "Projection mapped generative graphics for JSConfEU 2018."
+  },
+  {
+    "visible": true,
+    "title": "Bellwoods",
+    "url": "https://www.behance.net/gallery/70874747/Bellwoods",
+    "name": "bellwoods",
+    "info": "A generative art game for mobile & desktop.​​​​​​​​​​​​​​"
+  },
+  {
+    "visible": true,
+    "title": "Leaf Notes",
+    "url": "https://www.behance.net/gallery/63495499/Leaf-Notes-a-Tendril-Web-Toy",
+    "name": "webtoy",
+    "info": "An interactive web toy for Tendril's home page."
+  },
+  {
+    "visible": true,
+    "title": "Crystal Towers",
+    "url": "https://www.behance.net/gallery/56908173/Crystal-Towers",
+    "name": "crystaltowers",
+    "info": "A generative algorithm that produces unique and data-driven 3D distributions of skyscraper heights in several major cities."
+  },
+  {
+    "visible": false,
+    "title": "THX",
+    "url": "http://thx.com/",
+    "name": "thx",
+    "info": "A WebGL banner for THX's new website."
+  },
+  {
+    "title": "Mozilla GDC 2016",
+    "url": "http://www.jam3.com/work/mozilla-webgl/",
+    "name": "mozilla",
+    "info": "A WebGL2 tech demo for Mozilla FireFox, shown at GDC 2016."
+  },
+  {
+    "visible": false,
+    "title": "Aurora",
+    "url": "https://aurora.jam3.net/",
+    "name": "aurora",
+    "info": "A WebVR audio-visual experience for Google Cardboard."
+  },
+  {
+    "title": "Audiograph",
+    "url": "http://audiograph.xyz/",
+    "repository": "https://github.com/mattdesl/audiograph.xyz",
+    "name": "audiograph",
+    "info": "A visual exploration of Pilotpriest's 2016 album, <em>TRANS</em>."
+  },
+  {
+    "visible": true,
+    "title": "color-wander",
+    "url": "http://color-wander.surge.sh/",
+    "repository": "https://github.com/mattdesl/color-wander",
+    "name": "colorwander",
+    "info": "An open-source generative artwork in Node.js and the browser."
+  }
+]
