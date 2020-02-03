@@ -8,12 +8,11 @@ const mkdirp = require('mkdirp');
 const rgbHex = require('rgb-hex');
 const getPalette = require('get-rgba-palette')
 
-const Canvas = require('canvas');
-const Image = Canvas.Image;
+const { createCanvas, loadImage } = require('canvas');
 const data = require('../src/data/works.json').filter(w => w.visible !== false);
 const workImageNames = data.map(d => d.name);
 
-const tmpCanvas = new Canvas();
+const tmpCanvas = createCanvas();
 const tmpContext = tmpCanvas.getContext('2d');
 
 const outputImage = path.resolve(__dirname, '../app/assets/work_thumbs.png');
@@ -27,12 +26,17 @@ const imageFiles = allImages.filter(img => {
 }).map(f => path.resolve(input, f));
 
 mapLimit(imageFiles, 10, (file, next) => {
-  fs.readFile(file, (err, buffer) => {
-    if (err) return next(err);
-    const img = new Image();
-    img.src = buffer;
+  // fs.readFile(file, (err, buffer) => {
+  //   if (err) return next(err);
+  //   const img = new Image();
+  //   img.src = buffer;
+  //   next(null, { image: img, name: path.basename(file, path.extname(file)) });
+  // });
+  loadImage(file).then(img => {
     next(null, { image: img, name: path.basename(file, path.extname(file)) });
-  });
+  }).catch(err => {
+    next(err);
+  })
 }, (err, results) => {
   if (err) throw err;
 
@@ -45,7 +49,7 @@ mapLimit(imageFiles, 10, (file, next) => {
   const tileHeight = config.GRID_THUMB_HEIGHT;
 
   const columns = imageFiles.length;
-  const canvas = new Canvas(columns * tileWidth, tileHeight);
+  const canvas = createCanvas(columns * tileWidth, tileHeight);
   const context = canvas.getContext('2d');
   results.forEach((result, i) => {
     context.drawImage(result.image, i * tileWidth, 0, tileWidth, tileHeight);
@@ -73,7 +77,7 @@ mapLimit(imageFiles, 10, (file, next) => {
 });
 
 function resizeImages (results) {
-  const tmpCanvas = new Canvas(config.GRID_LOW_WIDTH, config.GRID_LOW_HEIGHT);
+  const tmpCanvas = createCanvas(config.GRID_LOW_WIDTH, config.GRID_LOW_HEIGHT);
   const ctx = tmpCanvas.getContext('2d');
   mapLimit(results, 1, (result, next) => {
     const image = result.image;

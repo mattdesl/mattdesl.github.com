@@ -17,7 +17,7 @@
   "dependencies": {
     "babel-polyfill": "^6.23.0",
     "brfs": "^1.4.3",
-    "canvas": "^1.6.9",
+    "canvas": "^2.6.1",
     "clamp": "^1.0.1",
     "color-style": "^1.0.0",
     "dom-classes": "0.0.1",
