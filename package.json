@@ -61,7 +61,7 @@
     "less-plugin-autoprefix": "^1.5.1",
     "loose-envify": "^1.1.0",
     "map-stream": "0.0.6",
-    "minimist": "^1.2.0",
+    "minimist": "^1.2.2",
     "mkdirp": "^0.5.1",
     "normalize-css": "^2.3.1",
     "optimize-js": "^1.0.3",
