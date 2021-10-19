@@ -18,7 +18,7 @@
     const targetWidth = ~~(targetHeight * aspect);
     const inputHeight = window.innerHeight * window.devicePixelRatio;
     const targetRatio = inputHeight / targetHeight;
-    // window.R = targetRatio;
+    window.R = Math.max(0.5, targetRatio);
 
     const frame = document.querySelector('.frame')
     const resize = () => {
@@ -73,8 +73,8 @@
   </script>
   <style>
     canvas {
-      border-radius: 2px;
-      overflow: hidden;
+      /* border-radius: 2px; */
+      /* overflow: hidden; */
       cursor: pointer;
       z-index: 100;
     }
@@ -85,7 +85,7 @@
       background: rgba(0,0,0, 0.05);
       position: absolute;
       top: 0;
-      border-radius: 2px;
+      /* border-radius: 2px; */
       left: 0;
       right: 0;
       bottom: 0;

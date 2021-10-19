@@ -14,11 +14,15 @@
     <p>The software is a 15 kilobyte, self-contained JavaScript program that constructs stratified landforms using hundreds of thousands of small strokes of colour. The hash of each token describes a coordinate within a multidimensional generative space, locating a unique composition that lies along one of many possible longitudes.
       </p>
 
-    <img src={imageA} alt="Meridian outputs" />
-    
+    <a href={imageA} target="_blank">
+      <img src={imageA} alt="Meridian outputs" />
+    </a>
+
     <p>The project was distributed through <a href="">Art Blocks Playground</a> as a set of 1,000 unique non-fungible tokens (NFTs) on the Ethereum blockchain. The blockchain also acts as permanent, immutable and archival storage of the script.</p>
 
-    <img src={imageZoom} alt="Close-up of Meridian output" />
+    <a href={imageZoom} target="_blank">
+      <img class='banner' src={imageZoom} alt="Close-up of Meridian output" />
+    </a>
 
   </article>
 
@@ -29,7 +33,7 @@
 
     <p>The artwork is also embedded below, running in real-time. Click the canvas to generate a new and random Meridian. Each new output is unique—you will never see the same image twice—and the iterations are <em>out-of-band</em> in that they are not part of the tokenized set.</p>
 
-    <iframe  loading="lazy" src="/meridian.html" border="0" width="100%" height="auto" scrolling="no"></iframe>
+    <iframe loading="lazy" src="/meridian.html" border="0" width="100%" height="auto" scrolling="no"></iframe>
 
     <p>You can also run the project in full-screen <a href="/meridian.html" target="_blank">here</a>.
     </p>
@@ -58,7 +62,9 @@
     Large format prints of Meridian will be available for order toward the end of October 2021. A collector-curated art book will also be designed and published to capture the full range of the algorithm and its technical breakdowns in more detail. For details, see <a href="https://mattdesl.substack.com/p/notes-on-meridian">Notes on "Meridian" (Sept, 2021)</a>.
     </p>
 
-    <img src={imageBook} alt="Art Book mockup" />
+    <a href={imageBook} target="_blank">
+      <img src={imageBook} alt="Art Book mockup" />
+    </a>
 
     <caption>art book mockup — release TBD, late 2022</caption>
   </article>
@@ -69,8 +75,10 @@
     For more discussion around Meridian among collectors and the artist, you can join the <a href="https://discord.gg/8n5nnpCH">Art Blocks Discord</a> and find the <em>#matt-deslauriers</em> channel.
     </p>
 
-    <img src={imageB} alt="Meridian outputs" />
-  </article>
+    <a href={imageB} target="_blank">
+      <img src={imageB} alt="Meridian outputs" />
+    </a>
+    </article>
 
 </main>
 
@@ -103,6 +111,7 @@
     margin-top: 20px;
     /* margin-bottom: 40px; */
   }
+
 
   main {
     max-width: 720px;
@@ -182,6 +191,11 @@
     height: auto;
     margin-top: 20px;
     /* margin-bottom: 20px; */
+  }
+
+  .banner {
+    width: calc(100% + 80px); 
+    margin-left: -40px;
   }
 
   a, a:active, a:visited, a:hover {
