@@ -30,13 +30,36 @@
       resize()
     })
 
-    setTimeout(() => loadJS('/meridian.min.js'), 5)
-
-    window.addEventListener('click', ev => {
+    const doLoad = () => {
+      setTimeout(() => loadJS('/meridian.min.js'), 0);
+    };
+    
+    const ontap = ev => {
       if (/canvas/i.test(ev.target.tagName)) {
+        ev.preventDefault();
         window.location.reload()
       }
-    });
+    }
+
+    window.addEventListener('click', ontap);
+    window.addEventListener('touchend', ontap);
+
+    let loaded = false;
+
+    if (typeof IntersectionObserver !== 'undefined') {
+      const observer = new IntersectionObserver(([bodyElement]) => {
+
+        if (bodyElement.isIntersecting && !loaded) {
+          loaded = true;
+          doLoad();
+        }
+      }, { threshold: 0.1 });
+      const bodyElement = document.body;
+      observer.observe(bodyElement);
+    } else {
+      loaded = true;
+      doLoad();
+    }
 
     function loadJS(uri) {
       const scriptTag = document.createElement("script");
