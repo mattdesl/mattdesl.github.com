@@ -1,150 +1,173 @@
 <html>
-<body style="margin: 0">
-  <div class='frame'>
-    <div class="loader"></div>
-  </div>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class='frame'>
+      <div class="loader"></div>
+    </div>
 
-  <script>
-    const tokenData = (() => {
-      let result = "0x";
-      for (let i = 64; i > 0; --i)
-        result += "0123456789abcdef"[~~(Math.random() * 16)];
-      return result;
-    })();
-    console.log(tokenData);
+    <script>
 
-    const aspect = 9/16;
-    const targetHeight = 2048;
-    const targetWidth = ~~(targetHeight * aspect);
-    const inputHeight = window.innerHeight * window.devicePixelRatio;
-    const targetRatio = inputHeight / targetHeight;
-    window.R = Math.max(0.5, targetRatio);
-
-    const frame = document.querySelector('.frame')
-    const resize = () => {
-      frame.style.height = `${window.innerHeight}px`;
-      frame.style.width = `${window.innerHeight * aspect}px`;
-    }
-    resize()
-    window.addEventListener('resize', ev => {
-      resize()
-    })
-
-    const doLoad = () => {
-      setTimeout(() => loadJS('/meridian.min.js'), 0);
-    };
-    
-    const ontap = ev => {
-      if (/canvas/i.test(ev.target.tagName)) {
-        ev.preventDefault();
-        window.location.reload()
+      function randomizeTokenData () {
+        const newHash = (() => {
+          let result = "0x";
+          for (let i = 64; i > 0; --i)
+            result += "0123456789abcdef"[~~(Math.random() * 16)];
+          return result;
+        })();
+        window.tokenData = newHash;
+        console.log(tokenData);
       }
-    }
 
-    window.addEventListener('click', ontap);
-    window.addEventListener('touchend', ontap);
+      const aspect = 9/16;
+      const targetHeight = 2048;
+      const targetWidth = ~~(targetHeight * aspect);
+      const inputHeight = window.innerHeight * window.devicePixelRatio;
+      const targetRatio = inputHeight / targetHeight;
+      window.R = Math.max(0.5, targetRatio);
 
-    let loaded = false;
+      const frame = document.querySelector('.frame')
+      const resize = () => {
+        frame.style.height = `${window.innerHeight}px`;
+        frame.style.width = `${window.innerHeight * aspect}px`;
+      }
+      resize();
+      window.addEventListener('resize', ev => {
+        resize();
+      });
 
-    if (typeof IntersectionObserver !== 'undefined') {
-      const observer = new IntersectionObserver(([bodyElement]) => {
-
-        if (bodyElement.isIntersecting && !loaded) {
-          loaded = true;
-          doLoad();
-        }
-      }, { threshold: 0.1 });
-      const bodyElement = document.body;
-      observer.observe(bodyElement);
-    } else {
-      loaded = true;
-      doLoad();
-    }
-
-    function loadJS(uri) {
-      const scriptTag = document.createElement("script");
-      scriptTag.onload = () => {
-        // if (frame && frame.parentElement)
-        //   frame.parentElement.removeChild(frame);
+      const doLoad = (delay = 0) => {
+        randomizeTokenData();
+        setTimeout(() => loadJS('/meridian.min.js'), delay);
       };
-      scriptTag.src = uri;
-      document.body.appendChild(scriptTag);
-    }
-  </script>
-  <style>
-    canvas {
-      /* border-radius: 2px; */
-      /* overflow: hidden; */
-      cursor: pointer;
-      z-index: 100;
-    }
-    .frame {
-      /* height: 100%; */
-      /* width: calc(100vw * (9/16)); */
-      /* border: 2px dashed rgba(0, 0, 0, 0.1); */
-      background: rgba(0,0,0, 0.05);
-      position: absolute;
-      top: 0;
-      /* border-radius: 2px; */
-      left: 0;
-      right: 0;
-      bottom: 0;
-      margin: auto;
-      box-sizing: border-box;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
 
-    /* Modified from: http://projects.lukehaas.me/css-loaders/ */
-    .loader {
-      margin: 0px auto;
-      font-size: 10px;
-      font: sans-serif;
-      position: relative;
-      text-indent: -9999em;
-      border-top: 0.2em solid rgba(0, 0, 0, 0.2);
-      border-right: 0.2em solid rgba(0, 0, 0, 0.2);
-      border-bottom: 0.2em solid rgba(0, 0, 0, 0.2);
-      border-left: 0.2em solid #000;
-      -webkit-transform: translateZ(0);
-      -ms-transform: translateZ(0);
-      transform: translateZ(0);
-      -webkit-animation: spin 1.1s infinite linear;
-      animation: spin 1.1s infinite linear;
-    }
-    .loader,
-    .loader:after {
-      border-radius: 50%;
-      width: 3em;
-      height: 3em;
-      position: absolute;
-      margin: auto;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-    }
-    @-webkit-keyframes spin {
-      0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
+      const restart = () => {
+        [...document.querySelectorAll('canvas')].forEach(e => {
+          if (e.parentElement) e.parentElement.removeChild(e);
+        });
+        doLoad();
       }
-      100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
+      
+      const ontap = ev => {
+        if (/canvas/i.test(ev.target.tagName)) {
+          ev.preventDefault();
+          window.location.reload()
+          // restart();
+        }
       }
-    }
-    @keyframes spin {
-      0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
+
+      window.addEventListener('click', ontap);
+      document.body.addEventListener('touchend', ontap)
+
+      let loaded = false;
+      const startDelay = 25;
+
+      if (typeof IntersectionObserver !== 'undefined') {
+        const observer = new IntersectionObserver(([bodyElement]) => {
+
+          if (bodyElement.isIntersecting && !loaded) {
+            loaded = true;
+            doLoad(startDelay);
+          }
+        }, { threshold: 0.1 });
+        const bodyElement = document.body;
+        observer.observe(bodyElement);
+      } else {
+        loaded = true;
+        doLoad(startDelay);
       }
-      100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
+
+      function loadJS(uri) {
+        const scriptTag = document.createElement("script");
+        scriptTag.onload = () => {
+          // if (frame && frame.parentElement)
+          //   frame.parentElement.removeChild(frame);
+        };
+        scriptTag.async = true;
+        scriptTag.defer = true;
+        scriptTag.src = uri;
+        document.body.appendChild(scriptTag);
       }
-    }
-  </style>
-</body>
+    </script>
+    <style>
+      canvas {
+        /* border-radius: 2px; */
+        /* overflow: hidden; */
+        cursor: pointer;
+        z-index: 100;
+      }
+      html, body {
+        margin: 0;
+        touch-action: auto;
+      }
+      .frame {
+        /* height: 100%; */
+        /* width: calc(100vw * (9/16)); */
+        /* border: 2px dashed rgba(0, 0, 0, 0.1); */
+        background: rgba(0,0,0, 0.05);
+        position: absolute;
+        top: 0;
+        /* border-radius: 2px; */
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Modified from: http://projects.lukehaas.me/css-loaders/ */
+      .loader {
+        margin: 0px auto;
+        font-size: 10px;
+        font: sans-serif;
+        position: relative;
+        text-indent: -9999em;
+        border-top: 0.2em solid rgba(0, 0, 0, 0.2);
+        border-right: 0.2em solid rgba(0, 0, 0, 0.2);
+        border-bottom: 0.2em solid rgba(0, 0, 0, 0.2);
+        border-left: 0.2em solid #000;
+        -webkit-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-animation: spin 1.1s infinite linear;
+        animation: spin 1.1s infinite linear;
+      }
+      .loader,
+      .loader:after {
+        border-radius: 50%;
+        width: 3em;
+        height: 3em;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+      @-webkit-keyframes spin {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spin {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </body>
 </html>
