@@ -3,6 +3,7 @@
   import imageZoom from './images/zoom.jpg';
   import imageB from './images/b.jpg';
   import imageBook from './images/BookOpen1.jpg';
+  import printMockup from './images/print.jpg';
 </script>
 
 <main>
@@ -55,11 +56,24 @@
     <!-- <img src="" /> -->
   </article>
 
+  <h2>Token-Limited Signed Prints</h2>
 
-  <h2>Prints & Art Book</h2>
   <article>
     <p>
-    Large format prints of Meridian will be available for order toward the end of October 2021. A collector-curated art book will also be designed and published to capture the full range of the algorithm and its technical breakdowns in more detail. For details, see <a href="https://mattdesl.substack.com/p/notes-on-meridian">Notes on "Meridian" (Sept, 2021)</a>.
+      If you currently own one of the minted 1,000 Meridian tokens, and can prove wallet ownership, you are eligible to purchase a limited edition, archival-quality print signed and dated by the artist, corresponding to the token # that you own.
+    </p>
+    <p>
+      For details and order form, <a href="https://shop.mattdesl.com/pages/meridian-prints" target="_blank">see here</a>.
+    </p>
+
+    <img src={printMockup} alt="150 cm tall print" style="height: 550px; width: auto;" />
+    <caption><a href="https://artblocks.io/token/163000661" target="_blank">#661</a>, archival inkjet print, 84 x 150 cm</caption>
+  </article>
+
+  <h2>Additional Prints & Art Book</h2>
+  <article>
+    <p>
+    I also plan to release a selection of unsigned prints at a lower price point, that will not require token ownership, and an art book that spans the entire project. For details, see <a href="https://mattdesl.substack.com/p/notes-on-meridian">Notes on "Meridian" (Sept, 2021)</a>.
     </p>
 
     <a href={imageBook} target="_blank">
