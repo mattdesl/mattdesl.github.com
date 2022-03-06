@@ -49,6 +49,7 @@
             context.fillRect(0, 0, width, height);
             document.body.style.backgroundColor = background;
             context.canvas.style.backgroundColor = background;
+            context.canvas.style.visibility = '';
             if (lineCap) context.lineCap = "round";
           }
         };
@@ -67,6 +68,7 @@
 
         const begin = () => {
           if (context) {
+            context.canvas.style.visibility = 'hidden';
             context.save();
             context.scale(pixelRatio, pixelRatio);
           }
