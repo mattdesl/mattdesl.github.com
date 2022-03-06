@@ -1,0 +1,182 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class='frame'>
+      <!-- <div class="loader"></div> -->
+    </div>
+
+    <script>
+      function randomizeTokenData () {
+        const newHash = (() => {
+          let result = "0x";
+          for (let i = 64; i > 0; --i)
+            result += "0123456789abcdef"[~~(Math.random() * 16)];
+          return result;
+        })();
+        window.tokenData = newHash;
+        console.log(tokenData);
+      }
+
+      const aspect = 9/16;
+      const targetHeight = 2048;
+      const targetWidth = ~~(targetHeight * aspect);
+      const inputHeight = window.innerHeight * window.devicePixelRatio;
+      const targetRatio = inputHeight / targetHeight;
+      const looping = false;
+      const endDelay = 5*1000;
+
+      window.R = Math.max(0.5, targetRatio);
+
+      window.X = (context, width, height, pixelRatio) => {
+        const penStroke = (x, y, angle, length) => {
+          const len2 = length / 2;
+          const cos = Math.cos(angle),
+            sin = Math.sin(angle);
+          const points = [-1, 1].map((d) => [x + cos * len2 * d, y + sin * len2 * d]);
+
+          const a = points[0];
+          const b = points[1];
+          context.moveTo(a[0], a[1]);
+          context.lineTo(b[0], b[1]);
+        };
+
+        const clear = (background, palette, lineCap) => {
+          if (context) {
+            context.fillStyle = background;
+            context.fillRect(0, 0, width, height);
+            document.body.style.backgroundColor = background;
+            if (lineCap) context.lineCap = "round";
+          }
+        };
+
+        const draw = (x, y, strokeLen, lineWidth, angle, color, alpha, blend) => {
+          if (context) {
+            context.globalCompositeOperation = blend || "source-over";
+            context.lineWidth = lineWidth;
+            context.strokeStyle = color;
+            context.globalAlpha = alpha;
+            context.beginPath();
+            penStroke(x, y, angle, strokeLen);
+            context.stroke();
+          }
+        };
+
+        const begin = () => {
+          if (context) {
+            context.save();
+            context.scale(pixelRatio, pixelRatio);
+          }
+        };
+
+        const end = () => {
+          if (context) context.restore();
+          if (looping) {
+            setTimeout(() => {
+              window.location.reload();
+            }, endDelay)
+          }
+        };
+
+        return [clear, draw, begin, end];
+      };
+
+
+      const frame = document.querySelector('.frame')
+      const resize = () => {
+        frame.style.height = `${window.innerHeight}px`;
+        frame.style.width = `${window.innerHeight * aspect}px`;
+      }
+      resize();
+      window.addEventListener('resize', ev => {
+        resize();
+      });
+
+      const doLoad = (delay = 0) => {
+        randomizeTokenData();
+        setTimeout(() => loadJS('/meridian.min.js'), delay);
+      };
+
+      const restart = () => {
+        [...document.querySelectorAll('canvas')].forEach(e => {
+          if (e.parentElement) e.parentElement.removeChild(e);
+        });
+        doLoad();
+      }
+      
+      const ontap = ev => {
+        if (/canvas/i.test(ev.target.tagName)) {
+          ev.preventDefault();
+          window.location.reload()
+        }
+      }
+
+      if (!looping) {
+        document.body.classList.add('interactive')
+        window.addEventListener('click', ontap);
+        document.body.addEventListener('touchend', ontap);
+      }
+
+      let loaded = false;
+      const startDelay = 150;
+
+      if (typeof IntersectionObserver !== 'undefined') {
+        const observer = new IntersectionObserver(([bodyElement]) => {
+          if (bodyElement.isIntersecting && !loaded) {
+            loaded = true;
+            doLoad(startDelay);
+          }
+        }, { threshold: 0.1 });
+        const bodyElement = document.body;
+        observer.observe(bodyElement);
+      } else {
+        loaded = true;
+        doLoad(startDelay);
+      }
+      
+      function loadJS(uri) {
+        const scriptTag = document.createElement("script");
+        scriptTag.onload = () => {
+          // if (frame && frame.parentElement)
+          //   frame.parentElement.removeChild(frame);
+        };
+        scriptTag.async = true;
+        scriptTag.defer = true;
+        scriptTag.src = uri;
+        document.body.appendChild(scriptTag);
+      }
+    </script>
+    <style>
+      .interactive {
+        cursor: pointer;
+      }
+      canvas {
+        /* border-radius: 2px; */
+        /* overflow: hidden; */
+        z-index: 100;
+      }
+      html, body {
+        margin: 0;
+        touch-action: auto;
+      }
+      .frame {
+        /* height: 100%; */
+        /* width: calc(100vw * (9/16)); */
+        /* border: 2px dashed rgba(0, 0, 0, 0.1); */
+        background: rgba(0,0,0, 0.05);
+        position: absolute;
+        top: 0;
+        /* border-radius: 2px; */
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </body>
+</html>
