@@ -8,9 +8,10 @@
     </style>
   </head>
   <body>
-    <div class='frame'>
-      <!-- <div class="loader"></div> -->
-    </div>
+    <!-- <div class='frame'>
+      <div class="loader"></div> 
+    </div>-->
+    <div class="loader"></div>
 
     <script>
       function randomizeTokenData () {
@@ -24,6 +25,8 @@
         console.log(tokenData);
       }
 
+      const embed = (window.location.search||'').includes('embed');
+      let drawn = false;
       const aspect = 9/16;
       const targetHeight = 2048;
       const targetWidth = ~~(targetHeight * aspect);
@@ -31,6 +34,7 @@
       const targetRatio = inputHeight / targetHeight;
       const looping = false;
       const endDelay = 5*1000;
+      const loader = document.querySelector('.loader');
 
       window.R = Math.max(0.5, targetRatio);
 
@@ -52,15 +56,19 @@
             context.clearRect(0, 0, width, height);
             context.fillStyle = background;
             context.fillRect(0, 0, width, height);
-            document.body.style.backgroundColor = background;
+            if (!embed) document.body.style.backgroundColor = background;
             context.canvas.style.backgroundColor = background;
-            context.canvas.style.visibility = '';
             if (lineCap) context.lineCap = "round";
           }
         };
 
         const draw = (x, y, strokeLen, lineWidth, angle, color, alpha, blend) => {
           if (context) {
+            if (!drawn) {
+              context.canvas.style.visibility = '';
+              drawn = true;
+              loader.style.display = 'none';
+            }
             context.globalCompositeOperation = blend || "source-over";
             context.lineWidth = lineWidth;
             context.strokeStyle = color;
@@ -74,6 +82,7 @@
         const begin = () => {
           if (context) {
             context.canvas.style.visibility = 'hidden';
+            context.canvas.style.backgroundColor = 'white';
             context.save();
             context.scale(pixelRatio, pixelRatio);
           }
@@ -92,10 +101,10 @@
       };
 
 
-      const frame = document.querySelector('.frame')
+      // const frame = document.querySelector('.frame')
       const resize = () => {
-        frame.style.height = `${window.innerHeight}px`;
-        frame.style.width = `${window.innerHeight * aspect}px`;
+        // frame.style.height = `${window.innerHeight}px`;
+        // frame.style.width = `${window.innerHeight * aspect}px`;
       }
       resize();
       window.addEventListener('resize', ev => {
@@ -115,15 +124,17 @@
       }
       
       const ontap = ev => {
-        if (/canvas/i.test(ev.target.tagName)) {
+        const hitCanvas = embed ? /canvas/i.test(ev.target.tagName) : true;
+        if (hitCanvas) {
           ev.preventDefault();
           window.location.reload()
         }
       }
 
       if (!looping) {
-        document.body.classList.add('interactive')
+        if (!embed) document.body.classList.add('interactive')
         window.addEventListener('click', ontap);
+        document.body.addEventListener('mouseup', ontap);
         document.body.addEventListener('touchend', ontap);
       }
 
@@ -164,6 +175,7 @@
         /* border-radius: 2px; */
         /* overflow: hidden; */
         z-index: 100;
+        cursor: pointer;
       }
       html, body {
         margin: 0;
@@ -187,5 +199,87 @@
         align-items: center;
       }
     </style>
+
+<style>
+  canvas {
+    /* border-radius: 2px; */
+    /* overflow: hidden; */
+    cursor: pointer;
+    z-index: 100;
+  }
+  html, body {
+    margin: 0;
+    touch-action: auto;
+  }
+  .frame {
+    /* height: 100%; */
+    /* width: calc(100vw * (9/16)); */
+    /* border: 2px dashed rgba(0, 0, 0, 0.1); */
+    background: rgba(0,0,0, 0.05);
+    position: absolute;
+    top: 0;
+    /* border-radius: 2px; */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    box-sizing: border-box;
+    display: flex;
+    pointer-events: none;;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Modified from: http://projects.lukehaas.me/css-loaders/ */
+  .loader {
+    margin: 0px auto;
+    font-size: 10px;
+    font: sans-serif;
+    position: relative;
+    text-indent: -9999em;
+    border-top: 0.2em solid rgba(0, 0, 0, 0.2);
+    border-right: 0.2em solid rgba(0, 0, 0, 0.2);
+    border-bottom: 0.2em solid rgba(0, 0, 0, 0.2);
+    border-left: 0.2em solid #000;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation: spin 1.1s infinite linear;
+    animation: spin 1.1s infinite linear;
+    z-index: 10000;
+  }
+  .loader,
+  .loader:after {
+    border-radius: 50%;
+    width: 3em;
+    height: 3em;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+</style>
   </body>
 </html>

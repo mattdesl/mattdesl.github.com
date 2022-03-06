@@ -34,9 +34,9 @@
 
     <p>The artwork is also embedded below, running in real-time. Click the canvas to generate a new and random Meridian. Each new output is unique—you will never see the same image twice—and the iterations are <em>out-of-band</em> in that they are not part of the tokenized set.</p>
 
-    <iframe loading="lazy" src="/meridian.html" border="0" width="100%" height="auto" scrolling="no"></iframe>
+    <iframe loading="lazy" src="/meridian-full.html?embed" border="0" width="100%" height="auto" scrolling="no"></iframe>
 
-    <p>You can also run the project in full-screen <a href="/meridian.html" target="_blank">here</a>.
+    <p>You can also run the project in full-screen <a href="/meridian-full.html" target="_blank">here</a>.
     </p>
   </article>
 
