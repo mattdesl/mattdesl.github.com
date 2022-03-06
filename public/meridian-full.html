@@ -44,9 +44,11 @@
 
         const clear = (background, palette, lineCap) => {
           if (context) {
+            context.clearRect(0, 0, width, height);
             context.fillStyle = background;
             context.fillRect(0, 0, width, height);
             document.body.style.backgroundColor = background;
+            context.canvas.style.backgroundColor = background;
             if (lineCap) context.lineCap = "round";
           }
         };
