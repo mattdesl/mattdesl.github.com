@@ -55,7 +55,7 @@
     "gh-api": "^1.0.0",
     "gh-api-stream": "^1.0.3",
     "ghauth": "^3.2.0",
-    "got": "^6.1.1",
+    "got": "^11.8.5",
     "installify": "^1.0.2",
     "less-css-stream": "^1.0.0",
     "less-plugin-autoprefix": "^1.5.1",
