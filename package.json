@@ -12,6 +12,7 @@
   "dependencies": {},
   "type": "module",
   "scripts": {
+    "build": ""
   },
   "devDependencies": {
   },
