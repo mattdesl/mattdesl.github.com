@@ -67,7 +67,7 @@
     "optimize-js": "^1.0.3",
     "pump": "^1.0.1",
     "rgb-hex": "^2.1.0",
-    "surge": "^0.17.7",
+    "surge": "^0.23.1",
     "through2": "^2.0.1",
     "uglify-js": "^2.6.1",
     "unassertify": "^2.0.4",
