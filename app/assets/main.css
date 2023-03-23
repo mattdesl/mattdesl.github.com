@@ -181,4 +181,5 @@ td {
 
 h1.intro {
   margin-top: 0.25em;
+  text-transform: lowercase;
 }
