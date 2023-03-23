@@ -31,7 +31,8 @@ body {
   background: #e9e3d5;
   /* background: rgb(242, 242, 242); */
   font-family: "BerkleyMono", "Andale Mono", "Courier New", monospace;
-  /* -webkit-font-smoothing: antialiased; */
+  /* ugh */
+  -webkit-font-smoothing: antialiased;
   line-height: 1.5;
   margin: 0 auto;
   max-width: 50em;
