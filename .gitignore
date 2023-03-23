@@ -2,7 +2,3 @@ bower_components
 node_modules
 *.log
 .DS_Store
-bundle.js
-main.css
-app/assets/work/*.png
-app/assets/codevember/
