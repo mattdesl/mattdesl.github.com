@@ -27,8 +27,10 @@
 }
 
 body {
-  color: #333;
-  background: #e9e3d5;
+  color: hsl(0, 0%, 10%);
+  /* color: #333; */
+  background: hsl(0, 0%, 97%);
+  /* background: #e9e3d5; */
   /* background: rgb(242, 242, 242); */
   font-family: "BerkleyMono", "Andale Mono", "Courier New", monospace;
   /* ugh */
@@ -138,7 +140,7 @@ td {
   text-align: left;
 }
 
-.portrait-container {
+.image-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -148,15 +150,23 @@ td {
   margin-bottom: 2em;
   /* width: 30em; */
 }
-.portrait-container .caption {
+.image-container .caption {
   align-self: flex-start;
   font-size: 11px;
   margin-top: 8px;
   font-style: italic;
 }
-.portrait {
+.image {
   width: 100%;
   height: auto;
+}
+.smallcrop {
+  /* margin: 0 auto; */
+  /* align-self: center; */
+  /* width: 66%; */
+  max-width: 540px;
+  /* 
+  padding: 20px; */
 }
 
 .bullet {
@@ -180,7 +190,45 @@ td {
   font-size: 10px;
 }
 
+.footnote-big {
+  margin-top: 4em;
+  font-size: 12px;
+}
+
 h1.intro {
   margin-top: 0.25em;
   text-transform: lowercase;
+}
+
+h1.page-intro {
+  margin-top: 0.25em;
+}
+
+.svg-image-icon {
+  display: inline-block;
+  margin-top: -2px;
+  line-height: 18px;
+  vertical-align: middle;
+  width: 18px;
+  height: 18px;
+}
+
+.dateline {
+  font-size: 12px;
+  font-style: italic;
+  text-transform: lowercase;
+  margin-top: 0.25em;
+  margin-bottom: 2em;
+}
+
+.backnav {
+  font-size: 14px;
+  text-transform: lowercase;
+  margin-top: 0.25em;
+  margin-bottom: 2em;
+}
+
+.backnav a {
+  /* text-decoration: none; */
+  /* color: black; */
 }
