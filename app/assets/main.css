@@ -190,9 +190,33 @@ td {
   font-size: 10px;
 }
 
-.footnote-big {
+.footnote-header {
   margin-top: 4em;
+}
+
+.footnote-big {
+  /* margin-top: 0em; */
   font-size: 12px;
+}
+
+.footnote-list {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+  padding-left: 2ch;
+}
+.footnote-list li {
+  position: relative;
+  margin-top: 1em;
+  /* text-indent: -1em; */
+}
+.footnote-list li:before {
+  content: "*";
+  position: absolute;
+  font-size: 12px;
+  top: 0px;
+  left: -2ch;
+  /* padding-right: 5px; */
 }
 
 h1.intro {
@@ -231,4 +255,12 @@ h1.page-intro {
 .backnav a {
   /* text-decoration: none; */
   /* color: black; */
+}
+
+.contribution-data {
+  font-size: 12px;
+  padding: 10px;
+  border-radius: 5px;
+  background: hsl(0, 0%, 90%);
+  color: black;
 }
