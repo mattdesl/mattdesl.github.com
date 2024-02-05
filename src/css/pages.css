@@ -1,0 +1,95 @@
+.smallcrop {
+  /* margin: 0 auto; */
+  /* align-self: center; */
+  /* width: 66%; */
+  max-width: 540px;
+  /* 
+  padding: 20px; */
+}
+
+.bullet {
+  --bullet-color: white;
+  position: relative;
+  margin-left: 23px;
+}
+.bullet::before {
+  position: absolute;
+  border-radius: 100%;
+  left: -20px;
+  top: 8px;
+  width: 5px;
+  height: 5px;
+  background: var(--bullet-color);
+  content: " ";
+}
+
+.footnote {
+  margin-top: 4em;
+  font-size: 10px;
+}
+
+.footnote-header {
+  margin-top: 4em;
+}
+
+.footnote-big {
+  /* margin-top: 0em; */
+  font-size: 12px;
+}
+
+.footnote-list {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+  padding-left: 2ch;
+}
+.footnote-list li {
+  position: relative;
+  margin-top: 1em;
+  /* text-indent: -1em; */
+}
+.footnote-list li:before {
+  content: "*";
+  position: absolute;
+  font-size: 12px;
+  top: 0px;
+  left: -2ch;
+  /* padding-right: 5px; */
+}
+
+h1.intro {
+  margin-top: 0.25em;
+  text-transform: lowercase;
+}
+
+h1.page-intro {
+  margin-top: 0.25em;
+}
+
+.svg-image-icon {
+  display: inline-block;
+  margin-top: -2px;
+  line-height: 18px;
+  vertical-align: middle;
+  width: 18px;
+  height: 18px;
+}
+
+.dateline {
+  font-size: 12px;
+  font-style: italic;
+  margin-top: 0.25em;
+  margin-bottom: 2em;
+}
+
+.backnav {
+  font-size: 14px;
+  text-transform: lowercase;
+  margin-top: 0.25em;
+  margin-bottom: 2em;
+}
+
+.backnav a {
+  /* text-decoration: none; */
+  /* color: black; */
+}

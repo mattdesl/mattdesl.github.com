@@ -1,27 +1,39 @@
 {
-  "name": "mattdesl.github.com",
+  "name": "prj-sierra",
   "version": "1.0.0",
-  "description": "my site",
-  "main": "./app/index.html",
-  "license": "MIT",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
   "author": {
     "name": "Matt DesLauriers",
-    "email": "dave.des@gmail.com",
     "url": "https://github.com/mattdesl"
   },
-  "devDependencies": {
-    "live-server": "^1.2.2"
+  "dependencies": {
+    "canvas-sketch": "^0.7.7",
+    "canvas-sketch-util": "^1.10.0",
+    "decode-bmp": "^0.2.1",
+    "fast-png": "^6.2.0",
+    "get-pixels": "^3.3.3",
+    "load-asset": "^1.2.0",
+    "pako": "^2.1.0",
+    "qoijs": "^1.0.0"
   },
   "scripts": {
-    "dev": "live-server app/"
+    "dev": "vite",
+    "build": "vite build"
   },
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "git://github.com/mattdesl/mattdesl.github.com.git"
+    "url": "git://github.com/mattdesl/prj-sierra.git"
   },
-  "homepage": "https://github.com/mattdesl/mattdesl.github.com",
+  "homepage": "https://github.com/mattdesl/prj-sierra",
   "bugs": {
-    "url": "https://github.com/mattdesl/mattdesl.github.com/issues"
+    "url": "https://github.com/mattdesl/prj-sierra/issues"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^3.0.2",
+    "svelte": "^4.2.9",
+    "vite": "^5.0.12"
   }
 }
