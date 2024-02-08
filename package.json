@@ -23,7 +23,7 @@
     "dom-classes": "0.0.1",
     "dom-css": "^2.0.0",
     "domify": "^1.4.0",
-    "handlebars": "^4.0.5",
+    "handlebars": "^4.7.7",
     "hbsfy": "^2.5.0",
     "img": "^1.0.0",
     "lerp": "^1.0.3",
