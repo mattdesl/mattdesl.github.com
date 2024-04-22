@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{banner}}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{name}}</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-111422549-3"
+    ></script>
+    <link rel="stylesheet" href="../lib/css/base.css" />
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-111422549-3");
+    </script>
+  </head>
+  <body>
+    <script src="{{entry}}" type="module"></script>
+  </body>
+</html>
