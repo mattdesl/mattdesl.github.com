@@ -2,7 +2,3 @@ bower_components
 node_modules
 *.log
 .DS_Store
-deprecated/
-dist/
-pages/*.html
-!pages/_template.html
