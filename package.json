@@ -1,0 +1,12 @@
+{
+  "name": "mattdesl.github.com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": ""
+  },
+  "keywords": [],
+  "author": "Matt DesLauriers (https://mattdesl.com/)",
+  "license": "ISC"
+}
