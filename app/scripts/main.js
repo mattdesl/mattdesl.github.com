@@ -39,6 +39,7 @@ const shuffle = (arr) => {
 };
 
 const els = [...document.querySelectorAll(".bullet")];
+console.log("els", els);
 if (els.length > 0) {
   const colors = shuffle(globalColors);
   let i = 0;

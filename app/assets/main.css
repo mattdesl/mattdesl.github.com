@@ -264,3 +264,31 @@ h1.page-intro {
   background: hsl(0, 0%, 90%);
   color: black;
 }
+
+section.research {
+  margin-top: 2rem;
+  font-size: 14px;
+}
+section.research h3 {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+section.research {
+  --bullet-color: white;
+  position: relative;
+  margin-left: 23px;
+}
+section.research::before {
+  position: absolute;
+  border-radius: 100%;
+  left: -20px;
+  top: 8px;
+  width: 5px;
+  height: 5px;
+  background: var(--bullet-color);
+  content: " ";
+}
+section.research .image-container {
+  margin-top: 1rem;
+}
