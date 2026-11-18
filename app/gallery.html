@@ -12,9 +12,9 @@
       try { const s = localStorage.getItem('serac-surround') ?? localStorage.getItem('serac-theme'); if (s === 'light' || s === 'dark') document.documentElement.dataset.surround = s; } catch {}
       if (document.documentElement.dataset.surround === 'light') document.querySelector('meta[name="theme-color"]').content = '#ffffff';
     </script>
-    <script type="module" crossorigin src="./assets/gallery-DS7rlb0N.js"></script>
+    <script type="module" crossorigin src="./assets/gallery-BNRtHd2g.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/preload-helper-kNaey6uv.js">
-    <link rel="stylesheet" crossorigin href="./assets/gallery-1P5koEpZ.css">
+    <link rel="stylesheet" crossorigin href="./assets/gallery-zJKfpCRA.css">
   </head>
   <body class="gallery-page">
     <div class="site-toolbar">
@@ -54,10 +54,6 @@
             <span class="filter-label">Surround</span>
             <button tabindex="-1" class="surround icon-button" type="button" aria-label="Switch to light surround"></button>
           </div>
-          <div class="filter-row">
-            <span class="filter-label">Animate</span>
-            <button id="animate" tabindex="-1" class="icon-button" type="button" role="checkbox" aria-checked="true" aria-label="Animate each work when it opens"></button>
-          </div>
           <button id="collapse-toolbar" class="toolbar-collapse icon-button" type="button" tabindex="-1" aria-label="Hide toolbar" title="Hide toolbar"></button>
           <label hidden>Show <select tabindex="-1" id="collection"><option value="all">All works</option><option value="saved">Favourites</option></select></label>
         </div>
@@ -92,10 +88,12 @@
         </dl>
         <button tabindex="-1" id="favourite" type="button" aria-pressed="false" hidden>Save favourite</button>
         <div class="work-tools">
-          <span class="work-action"><button tabindex="-1" id="replay" type="button">Render</button><span id="replay-progress" class="action-progress" role="progressbar" aria-label="Drawing progress" aria-valuemin="0" aria-valuemax="100" hidden></span></span>
+          <!-- The Render button is hidden for now; clicking the artwork, or ticking Animate, does the same. -->
+          <span class="work-action" hidden><button tabindex="-1" id="replay" type="button">Render</button><span id="replay-progress" class="action-progress" role="progressbar" aria-label="Drawing progress" aria-valuemin="0" aria-valuemax="100" hidden></span></span>
           <span class="work-action"><button tabindex="-1" id="save-image" type="button">Download PNG</button><span id="save-progress" class="action-progress" role="progressbar" aria-label="Download progress" aria-valuemin="0" aria-valuemax="100" hidden></span></span>
           <a tabindex="-1" id="verse-link" target="_blank" rel="noopener">Verse</a>
           <button tabindex="-1" id="share" type="button">Share</button>
+          <button id="animate" tabindex="-1" class="animate-toggle" type="button" role="checkbox" aria-checked="true"><span>Animate</span></button>
         </div>
       </aside>
     </dialog>
