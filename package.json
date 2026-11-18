@@ -9,12 +9,8 @@
     "email": "dave.des@gmail.com",
     "url": "https://github.com/mattdesl"
   },
-  "devDependencies": {
-    "live-server": "^1.2.2"
-  },
-  "scripts": {
-    "dev": "live-server app/"
-  },
+  "devDependencies": {},
+  "scripts": {},
   "keywords": [],
   "repository": {
     "type": "git",
