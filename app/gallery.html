@@ -12,22 +12,22 @@
       try { const s = localStorage.getItem('serac-surround') ?? localStorage.getItem('serac-theme'); if (s === 'light' || s === 'dark') document.documentElement.dataset.surround = s; } catch {}
       if (document.documentElement.dataset.surround === 'light') document.querySelector('meta[name="theme-color"]').content = '#ffffff';
     </script>
-    <script type="module" crossorigin src="./assets/gallery-CwxmqlgZ.js"></script>
+    <script type="module" crossorigin src="./assets/gallery-DS7rlb0N.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/preload-helper-kNaey6uv.js">
-    <link rel="stylesheet" crossorigin href="./assets/gallery-C_AjAoXb.css">
+    <link rel="stylesheet" crossorigin href="./assets/gallery-1P5koEpZ.css">
   </head>
   <body class="gallery-page">
     <div class="site-toolbar">
       <header class="site-header">
         <div class="header-title">
-          <a class="wordmark" href="./gallery.html">Serac</a>
-          <a id="verse-series" class="verse-series" href="https://verse.works/series/serac-by-matt-deslauriers" target="_blank" rel="noopener">View on Verse</a>
+          <a tabindex="-1" class="wordmark" href="./gallery.html">Serac</a>
+          <a tabindex="-1" id="verse-series" class="verse-series" href="https://verse.works/series/serac-by-matt-deslauriers" target="_blank" rel="noopener">View on Verse</a>
         </div>
         <div class="header-tools">
           <!-- The about page is hidden for now; its links come back with it, and the wordmark returns to ./index.html.
-          <nav aria-label="Main"><a href="./index.html">about</a><a href="./gallery.html" aria-current="page">gallery</a></nav>
+          <nav aria-label="Main"><a tabindex="-1" href="./index.html">about</a><a tabindex="-1" href="./gallery.html" aria-current="page">gallery</a></nav>
           -->
-          <button id="toggle-toolbar" class="toolbar-toggle" type="button" aria-expanded="false" aria-controls="gallery-filters"></button>
+          <button tabindex="-1" id="toggle-toolbar" class="toolbar-toggle" type="button" aria-expanded="false" aria-controls="gallery-filters"></button>
         </div>
       </header>
       <form id="gallery-filters" class="filters" aria-label="Gallery filters">
@@ -54,6 +54,10 @@
             <span class="filter-label">Surround</span>
             <button tabindex="-1" class="surround icon-button" type="button" aria-label="Switch to light surround"></button>
           </div>
+          <div class="filter-row">
+            <span class="filter-label">Animate</span>
+            <button id="animate" tabindex="-1" class="icon-button" type="button" role="checkbox" aria-checked="true" aria-label="Animate each work when it opens"></button>
+          </div>
           <button id="collapse-toolbar" class="toolbar-collapse icon-button" type="button" tabindex="-1" aria-label="Hide toolbar" title="Hide toolbar"></button>
           <label hidden>Show <select tabindex="-1" id="collection"><option value="all">All works</option><option value="saved">Favourites</option></select></label>
         </div>
@@ -70,15 +74,15 @@
       <noscript><p>This gallery needs JavaScript to browse the collection.</p></noscript>
     </main>
     <dialog id="viewer" class="viewer gallery-surround" aria-labelledby="work-title">
-      <div class="viewer-heading"><a id="close" class="back-link" href="./gallery.html" aria-label="Back to gallery (Escape)">Back to gallery</a></div>
+      <div class="viewer-heading"><a tabindex="-1" id="close" class="back-link" href="./gallery.html" aria-label="Back to gallery (Escape)">Back to gallery</a><button id="enlarge" class="enlarge icon-button" type="button" tabindex="-1" aria-pressed="false" aria-label="Enlarge artwork" title="Enlarge artwork"></button></div>
       <div id="art-stage" class="art-stage"><div id="art" class="art"><img id="work-image" alt="" draggable="false" hidden /><canvas id="work-canvas" aria-hidden="true" hidden></canvas></div></div>
       <aside class="viewer-panel">
         <h1 id="work-title" class="visually-hidden" tabindex="-1"></h1>
         <div class="work-navigation"><button id="previous" type="button" tabindex="-1" aria-label="Previous artwork (left arrow)">Previous</button><span id="position"></span><button id="next" type="button" tabindex="-1" aria-label="Next artwork (right arrow)">Next</button></div>
         <dl class="work-stats">
           <dt>ID</dt><dd id="work-id"></dd>
-          <dt>Style</dt><dd><a id="work-style"></a></dd>
-          <dt>Palette</dt><dd><a id="work-palette"></a></dd>
+          <dt>Style</dt><dd><a tabindex="-1" id="work-style"></a></dd>
+          <dt>Palette</dt><dd><a tabindex="-1" id="work-palette"></a></dd>
           <dt>Seed</dt><dd id="work-seed"></dd>
           <dt>Colour space</dt><dd id="work-space"></dd>
         </dl>
@@ -86,13 +90,12 @@
           <dt>Colours</dt><dd id="work-colors" class="swatches"></dd>
           <dt>Marks</dt><dd id="work-marks"></dd>
         </dl>
-        <button id="favourite" type="button" aria-pressed="false" hidden>Save favourite</button>
+        <button tabindex="-1" id="favourite" type="button" aria-pressed="false" hidden>Save favourite</button>
         <div class="work-tools">
-          <span class="work-action"><button id="replay" type="button">Render</button><span id="replay-progress" class="action-progress" role="progressbar" aria-label="Drawing progress" aria-valuemin="0" aria-valuemax="100" hidden></span></span>
-          <button id="fullscreen" type="button" hidden>Fullscreen</button>
-          <span class="work-action"><button id="save-image" type="button">Download PNG</button><span id="save-progress" class="action-progress" role="progressbar" aria-label="Download progress" aria-valuemin="0" aria-valuemax="100" hidden></span></span>
-          <a id="verse-link" target="_blank" rel="noopener">Verse</a>
-          <button id="share" type="button">Share</button>
+          <span class="work-action"><button tabindex="-1" id="replay" type="button">Render</button><span id="replay-progress" class="action-progress" role="progressbar" aria-label="Drawing progress" aria-valuemin="0" aria-valuemax="100" hidden></span></span>
+          <span class="work-action"><button tabindex="-1" id="save-image" type="button">Download PNG</button><span id="save-progress" class="action-progress" role="progressbar" aria-label="Download progress" aria-valuemin="0" aria-valuemax="100" hidden></span></span>
+          <a tabindex="-1" id="verse-link" target="_blank" rel="noopener">Verse</a>
+          <button tabindex="-1" id="share" type="button">Share</button>
         </div>
       </aside>
     </dialog>
