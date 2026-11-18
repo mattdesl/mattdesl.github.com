@@ -4,26 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light" />
+    <!-- The colour browsers use around the page (the iOS status bar and notch area); it follows the surround. -->
+    <meta name="theme-color" content="#1b1b1b" />
     <meta name="description" content="Serac — a collection of 1,000 works by Matt DesLauriers." />
     <title>Serac — Gallery</title>
     <script>
       try { const s = localStorage.getItem('serac-surround') ?? localStorage.getItem('serac-theme'); if (s === 'light' || s === 'dark') document.documentElement.dataset.surround = s; } catch {}
+      if (document.documentElement.dataset.surround === 'light') document.querySelector('meta[name="theme-color"]').content = '#ffffff';
     </script>
-    <script type="module" crossorigin src="./assets/gallery-2xU5Vn4F.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/escape-C9MKIc8v.js">
+    <script type="module" crossorigin src="./assets/gallery-CwxmqlgZ.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/preload-helper-kNaey6uv.js">
-    <link rel="stylesheet" crossorigin href="./assets/escape-DZ_rdwpr.css">
-    <link rel="stylesheet" crossorigin href="./assets/gallery-CY23TkQB.css">
+    <link rel="stylesheet" crossorigin href="./assets/gallery-C_AjAoXb.css">
   </head>
   <body class="gallery-page">
     <div class="site-toolbar">
       <header class="site-header">
         <div class="header-title">
-          <a class="wordmark" href="./index.html">Serac</a>
-          <button id="toggle-toolbar" class="toolbar-toggle" type="button" aria-expanded="false" aria-controls="gallery-filters"></button>
+          <a class="wordmark" href="./gallery.html">Serac</a>
+          <a id="verse-series" class="verse-series" href="https://verse.works/series/serac-by-matt-deslauriers" target="_blank" rel="noopener">View on Verse</a>
         </div>
         <div class="header-tools">
+          <!-- The about page is hidden for now; its links come back with it, and the wordmark returns to ./index.html.
           <nav aria-label="Main"><a href="./index.html">about</a><a href="./gallery.html" aria-current="page">gallery</a></nav>
+          -->
+          <button id="toggle-toolbar" class="toolbar-toggle" type="button" aria-expanded="false" aria-controls="gallery-filters"></button>
         </div>
       </header>
       <form id="gallery-filters" class="filters" aria-label="Gallery filters">
@@ -88,7 +92,7 @@
           <button id="fullscreen" type="button" hidden>Fullscreen</button>
           <span class="work-action"><button id="save-image" type="button">Download PNG</button><span id="save-progress" class="action-progress" role="progressbar" aria-label="Download progress" aria-valuemin="0" aria-valuemax="100" hidden></span></span>
           <a id="verse-link" target="_blank" rel="noopener">Verse</a>
-          <button id="share" type="button">Copy Link</button>
+          <button id="share" type="button">Share</button>
         </div>
       </aside>
     </dialog>

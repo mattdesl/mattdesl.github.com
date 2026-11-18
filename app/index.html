@@ -3,27 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="light" />
-    <meta name="description" content="About Serac, a collection by Matt DesLauriers." />
-    <title>Serac — About</title>
-    <script type="module" crossorigin src="./assets/escape-C9MKIc8v.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/escape-DZ_rdwpr.css">
+    <!-- The about page is parked in about.html for now, so the site opens on the gallery. -->
+    <meta http-equiv="refresh" content="0; url=./gallery.html" />
+    <title>Serac</title>
+    <script>location.replace('./gallery.html' + location.search + location.hash);</script>
   </head>
   <body>
-    <div class="site-toolbar">
-      <header class="site-header">
-        <a class="wordmark" href="./index.html">Serac</a>
-        <div class="header-tools">
-          <nav aria-label="Main"><a href="./index.html" aria-current="page">about</a><a href="./gallery.html">gallery</a></nav>
-        </div>
-      </header>
-    </div>
-    <main class="about">
-      <h1>Serac</h1>
-      <p class="byline">Matt DesLauriers, 2026</p>
-      <p>A collection of 1,000 selected works.</p>
-      <p>Each work is made of paths and marks, recorded in a binary file. The viewer draws these stored marks at the resolution of your screen, or at a larger size to save.</p>
-      <p>Browse the <a href="./gallery.html">gallery</a>, or visit <a href="https://mattdesl.com/">mattdesl.com</a>.</p>
-    </main>
+    <p><a href="./gallery.html">Serac gallery</a></p>
   </body>
 </html>
