@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en" data-surround="dark" data-toolbar="closed">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <meta name="description" content="Serac — a collection of 1,000 works by Matt DesLauriers." />
+    <title>Serac — Gallery</title>
+    <script>
+      try { const s = localStorage.getItem('serac-surround') ?? localStorage.getItem('serac-theme'); if (s === 'light' || s === 'dark') document.documentElement.dataset.surround = s; } catch {}
+    </script>
+    <script type="module" crossorigin src="./assets/gallery-2xU5Vn4F.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/escape-C9MKIc8v.js">
+    <link rel="modulepreload" crossorigin href="./assets/preload-helper-kNaey6uv.js">
+    <link rel="stylesheet" crossorigin href="./assets/escape-DZ_rdwpr.css">
+    <link rel="stylesheet" crossorigin href="./assets/gallery-CY23TkQB.css">
+  </head>
+  <body class="gallery-page">
+    <div class="site-toolbar">
+      <header class="site-header">
+        <div class="header-title">
+          <a class="wordmark" href="./index.html">Serac</a>
+          <button id="toggle-toolbar" class="toolbar-toggle" type="button" aria-expanded="false" aria-controls="gallery-filters"></button>
+        </div>
+        <div class="header-tools">
+          <nav aria-label="Main"><a href="./index.html">about</a><a href="./gallery.html" aria-current="page">gallery</a></nav>
+        </div>
+      </header>
+      <form id="gallery-filters" class="filters" aria-label="Gallery filters">
+        <label hidden>Find <input tabindex="-1" id="search" type="search" placeholder="ID or seed" autocomplete="off" /></label>
+        <div class="style-filters">
+          <label>Style <select tabindex="-1" id="style"><option value="">All</option></select></label>
+          <label>Palette <select tabindex="-1" id="palette"><option value="">All</option></select></label>
+        </div>
+        <div class="filter-actions">
+          <div class="filter-row">
+            <span class="filter-label">Sort</span>
+            <button tabindex="-1" id="sort" class="sort-toggle" type="button" value="id"><span id="sort-label" data-sort-label>ID</span></button>
+            <span class="shuffle-slot"><button tabindex="-1" id="shuffle" class="icon-button" type="button" aria-label="Shuffle sort order" title="Shuffle sort order" hidden></button></span>
+          </div>
+          <div class="filter-row">
+            <span id="size-label" class="filter-label">Size</span>
+            <span id="thumb-size" class="size-options" role="radiogroup" aria-labelledby="size-label">
+              <button tabindex="-1" type="button" role="radio" value="small" aria-label="Small thumbnails" title="Small thumbnails"></button>
+              <button tabindex="-1" type="button" role="radio" value="medium" aria-label="Medium thumbnails" title="Medium thumbnails"></button>
+              <button tabindex="-1" type="button" role="radio" value="big" aria-label="Big thumbnails" title="Big thumbnails"></button>
+            </span>
+          </div>
+          <div class="filter-row">
+            <span class="filter-label">Surround</span>
+            <button tabindex="-1" class="surround icon-button" type="button" aria-label="Switch to light surround"></button>
+          </div>
+          <button id="collapse-toolbar" class="toolbar-collapse icon-button" type="button" tabindex="-1" aria-label="Hide toolbar" title="Hide toolbar"></button>
+          <label hidden>Show <select tabindex="-1" id="collection"><option value="all">All works</option><option value="saved">Favourites</option></select></label>
+        </div>
+      </form>
+    </div>
+    <main class="gallery-surround">
+      <div class="gallery-status">
+        <nav id="breadcrumbs" class="breadcrumbs" aria-label="Current filters"></nav>
+        <p id="count" class="gallery-count" aria-live="polite"></p>
+      </div>
+      <div id="gallery" class="gallery" aria-label="Works" tabindex="-1"></div>
+      <p id="empty" class="empty" hidden>No works match these filters.</p>
+      <p id="load-error" class="empty" hidden>Could not load the collection. <button type="button" onclick="location.reload()">Try again</button></p>
+      <noscript><p>This gallery needs JavaScript to browse the collection.</p></noscript>
+    </main>
+    <dialog id="viewer" class="viewer gallery-surround" aria-labelledby="work-title">
+      <div class="viewer-heading"><a id="close" class="back-link" href="./gallery.html" aria-label="Back to gallery (Escape)">Back to gallery</a></div>
+      <div id="art-stage" class="art-stage"><div id="art" class="art"><img id="work-image" alt="" draggable="false" hidden /><canvas id="work-canvas" aria-hidden="true" hidden></canvas></div></div>
+      <aside class="viewer-panel">
+        <h1 id="work-title" class="visually-hidden" tabindex="-1"></h1>
+        <div class="work-navigation"><button id="previous" type="button" tabindex="-1" aria-label="Previous artwork (left arrow)">Previous</button><span id="position"></span><button id="next" type="button" tabindex="-1" aria-label="Next artwork (right arrow)">Next</button></div>
+        <dl class="work-stats">
+          <dt>ID</dt><dd id="work-id"></dd>
+          <dt>Style</dt><dd><a id="work-style"></a></dd>
+          <dt>Palette</dt><dd><a id="work-palette"></a></dd>
+          <dt>Seed</dt><dd id="work-seed"></dd>
+          <dt>Colour space</dt><dd id="work-space"></dd>
+        </dl>
+        <dl id="work-data" class="work-stats work-data">
+          <dt>Colours</dt><dd id="work-colors" class="swatches"></dd>
+          <dt>Marks</dt><dd id="work-marks"></dd>
+        </dl>
+        <button id="favourite" type="button" aria-pressed="false" hidden>Save favourite</button>
+        <div class="work-tools">
+          <span class="work-action"><button id="replay" type="button">Render</button><span id="replay-progress" class="action-progress" role="progressbar" aria-label="Drawing progress" aria-valuemin="0" aria-valuemax="100" hidden></span></span>
+          <button id="fullscreen" type="button" hidden>Fullscreen</button>
+          <span class="work-action"><button id="save-image" type="button">Download PNG</button><span id="save-progress" class="action-progress" role="progressbar" aria-label="Download progress" aria-valuemin="0" aria-valuemax="100" hidden></span></span>
+          <a id="verse-link" target="_blank" rel="noopener">Verse</a>
+          <button id="share" type="button">Copy Link</button>
+        </div>
+      </aside>
+    </dialog>
+  </body>
+</html>
