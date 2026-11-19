@@ -23,22 +23,23 @@
       try { const s = localStorage.getItem('serac-surround') ?? localStorage.getItem('serac-theme'); if (s === 'light' || s === 'dark') document.documentElement.dataset.surround = s; } catch {}
       if (document.documentElement.dataset.surround === 'light') document.querySelector('meta[name="theme-color"]').content = '#ffffff';
     </script>
-    <script type="module" crossorigin src="./assets/gallery-DQc2-Fdx.js"></script>
+    <script type="module" crossorigin src="./assets/gallery-C63rUekA.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/preload-helper-kNaey6uv.js">
     <link rel="modulepreload" crossorigin href="./assets/asset-host-aocIzUO1.js">
-    <link rel="stylesheet" crossorigin href="./assets/gallery-JlrYL2T2.css">
+    <link rel="stylesheet" crossorigin href="./assets/gallery-Do1yNqrn.css">
   </head>
   <body class="gallery-page">
     <div class="site-toolbar">
       <header class="site-header">
         <div class="header-title">
           <a tabindex="-1" class="wordmark" href="./gallery.html">Serac</a>
-          <a tabindex="-1" id="verse-series" class="verse-series" href="https://verse.works/series/serac-by-matt-deslauriers" target="_blank" rel="noopener">View on Verse</a>
+          <span class="byline">by Matt DesLauriers</span>
         </div>
         <div class="header-tools">
           <!-- The about page is hidden for now; its links come back with it, and the wordmark returns to ./index.html.
           <nav aria-label="Main"><a tabindex="-1" href="./index.html">about</a><a tabindex="-1" href="./gallery.html" aria-current="page">gallery</a></nav>
           -->
+          <a tabindex="-1" id="verse-series" class="verse-series" href="https://verse.works/series/serac-by-matt-deslauriers" target="_blank" rel="noopener">View on Verse</a>
           <button tabindex="-1" id="toggle-toolbar" class="toolbar-toggle" type="button" aria-expanded="false" aria-controls="gallery-filters"></button>
         </div>
       </header>
