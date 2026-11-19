@@ -12,9 +12,9 @@
       try { const s = localStorage.getItem('serac-surround') ?? localStorage.getItem('serac-theme'); if (s === 'light' || s === 'dark') document.documentElement.dataset.surround = s; } catch {}
       if (document.documentElement.dataset.surround === 'light') document.querySelector('meta[name="theme-color"]').content = '#ffffff';
     </script>
-    <script type="module" crossorigin src="./assets/gallery-BNRtHd2g.js"></script>
+    <script type="module" crossorigin src="./assets/gallery-1qTaK9yK.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/preload-helper-kNaey6uv.js">
-    <link rel="stylesheet" crossorigin href="./assets/gallery-zJKfpCRA.css">
+    <link rel="stylesheet" crossorigin href="./assets/gallery-BDAWQ5Q9.css">
   </head>
   <body class="gallery-page">
     <div class="site-toolbar">
@@ -65,7 +65,7 @@
         <p id="count" class="gallery-count" aria-live="polite"></p>
       </div>
       <div id="gallery" class="gallery" aria-label="Works" tabindex="-1"></div>
-      <p id="empty" class="empty" hidden>No works match these filters.</p>
+      <div id="empty" class="empty" hidden><p id="empty-text">No works match these filters.</p><button id="clear-filters" type="button" tabindex="-1">Clear filters</button></div>
       <p id="load-error" class="empty" hidden>Could not load the collection. <button type="button" onclick="location.reload()">Try again</button></p>
       <noscript><p>This gallery needs JavaScript to browse the collection.</p></noscript>
     </main>
