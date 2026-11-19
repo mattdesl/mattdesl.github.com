@@ -23,10 +23,10 @@
       try { const s = localStorage.getItem('serac-surround') ?? localStorage.getItem('serac-theme'); if (s === 'light' || s === 'dark') document.documentElement.dataset.surround = s; } catch {}
       if (document.documentElement.dataset.surround === 'light') document.querySelector('meta[name="theme-color"]').content = '#ffffff';
     </script>
-    <script type="module" crossorigin src="./assets/gallery-BuLHR9hu.js"></script>
+    <script type="module" crossorigin src="./assets/gallery-DgmVTeah.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/preload-helper-kNaey6uv.js">
     <link rel="modulepreload" crossorigin href="./assets/asset-host-aocIzUO1.js">
-    <link rel="stylesheet" crossorigin href="./assets/gallery-Cq7m_YFb.css">
+    <link rel="stylesheet" crossorigin href="./assets/gallery-CBa_SQRZ.css">
   </head>
   <body class="gallery-page">
     <div class="site-toolbar">
@@ -35,12 +35,12 @@
           <a tabindex="-1" class="wordmark" href="./gallery.html">Serac</a>
           <span class="byline">by Matt DesLauriers</span>
         </div>
+        <a tabindex="-1" id="verse-series" class="verse-series" href="https://verse.works/series/serac-by-matt-deslauriers" target="_blank" rel="noopener">View on Verse</a>
         <div class="header-tools">
           <!-- The about page is hidden for now; its links come back with it, and the wordmark returns to ./index.html.
           <nav aria-label="Main"><a tabindex="-1" href="./index.html">about</a><a tabindex="-1" href="./gallery.html" aria-current="page">gallery</a></nav>
           -->
-          <a tabindex="-1" id="verse-series" class="verse-series" href="https://verse.works/series/serac-by-matt-deslauriers" target="_blank" rel="noopener">View on Verse</a>
-          <button tabindex="-1" id="toggle-toolbar" class="toolbar-toggle" type="button" aria-expanded="false" aria-controls="gallery-filters"></button>
+          <button tabindex="-1" id="toggle-toolbar" class="toolbar-toggle" type="button" aria-expanded="false" aria-controls="gallery-filters"><span>Settings</span></button>
         </div>
       </header>
       <form id="gallery-filters" class="filters" aria-label="Gallery filters">
