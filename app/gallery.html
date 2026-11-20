@@ -23,10 +23,10 @@
       try { const s = localStorage.getItem('serac-surround') ?? localStorage.getItem('serac-theme'); if (s === 'light' || s === 'dark') document.documentElement.dataset.surround = s; } catch {}
       if (document.documentElement.dataset.surround === 'light') document.querySelector('meta[name="theme-color"]').content = '#ffffff';
     </script>
-    <script type="module" crossorigin src="./assets/gallery-DgmVTeah.js"></script>
+    <script type="module" crossorigin src="./assets/gallery-Bn4WeVOu.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/preload-helper-kNaey6uv.js">
     <link rel="modulepreload" crossorigin href="./assets/asset-host-aocIzUO1.js">
-    <link rel="stylesheet" crossorigin href="./assets/gallery-CBa_SQRZ.css">
+    <link rel="stylesheet" crossorigin href="./assets/gallery-wYR1bIOe.css">
   </head>
   <body class="gallery-page">
     <div class="site-toolbar">
@@ -109,6 +109,24 @@
           <button id="animate" tabindex="-1" class="animate-toggle" type="button" role="checkbox" aria-checked="true"><span>Animate</span></button>
         </div>
       </aside>
+    </dialog>
+    <!-- Opened by Shift-clicking Download PNG in the work view. -->
+    <dialog id="print-export" class="print-export gallery-surround" aria-labelledby="print-title">
+      <form id="print-form" class="print-panel">
+        <button id="print-close" class="print-close icon-button" type="button" tabindex="-1" aria-label="Close (Escape)"></button>
+        <h2 id="print-title">Download Print</h2>
+        <div class="print-row">
+          <label for="print-height">Height (px)</label>
+          <input id="print-height" type="number" step="1" inputmode="numeric" autocomplete="off" />
+        </div>
+        <dl class="print-sizes">
+          <dt>DPI</dt><dd id="print-dpi"></dd>
+          <dt>Canvas Size</dt><dd id="print-canvas"></dd>
+          <dt>Print Size</dt><dd id="print-physical"></dd>
+        </dl>
+        <div class="print-row"><button id="print-go" type="submit" tabindex="-1">Export</button><span id="print-progress" class="action-progress" aria-live="polite"></span></div>
+        <p id="print-message" class="print-message" aria-live="polite"></p>
+      </form>
     </dialog>
     <!-- Cloudflare Web Analytics: cookieless visitor counts. Only loaded on the live site, so local development
          and previews are not counted. -->
