@@ -110,5 +110,16 @@
         </div>
       </aside>
     </dialog>
+    <!-- Cloudflare Web Analytics: cookieless visitor counts. Only loaded on the live site, so local development
+         and previews are not counted. -->
+    <script>
+      if (location.hostname === 'serac.mattdesl.com') {
+        const beacon = document.createElement('script');
+        beacon.type = 'module';
+        beacon.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+        beacon.dataset.cfBeacon = '{"token": "c86b2511719b40819955f4d268763744"}';
+        document.body.append(beacon);
+      }
+    </script>
   </body>
 </html>
