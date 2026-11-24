@@ -1,1 +1,2 @@
 /artworks/*  https://serac.mattdesl.xyz/v1/:splat  200
+/w/*  /w/:splat.html  200
