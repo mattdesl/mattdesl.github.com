@@ -23,10 +23,10 @@
       try { const s = localStorage.getItem('serac-surround') ?? localStorage.getItem('serac-theme'); if (s === 'light' || s === 'dark') document.documentElement.dataset.surround = s; } catch {}
       if (document.documentElement.dataset.surround === 'light') document.querySelector('meta[name="theme-color"]').content = '#ffffff';
     </script>
-    <script type="module" crossorigin src="./assets/gallery-DEpAMr6Z.js"></script>
+    <script type="module" crossorigin src="./assets/gallery-bedpSENu.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/preload-helper-kNaey6uv.js">
     <link rel="modulepreload" crossorigin href="./assets/asset-host-aocIzUO1.js">
-    <link rel="stylesheet" crossorigin href="./assets/gallery-wYR1bIOe.css">
+    <link rel="stylesheet" crossorigin href="./assets/gallery-AWd6nH4W.css">
   </head>
   <body class="gallery-page">
     <div class="site-toolbar">
@@ -52,7 +52,7 @@
         <div class="filter-actions">
           <div class="filter-row">
             <span class="filter-label">Sort</span>
-            <button tabindex="-1" id="sort" class="sort-toggle" type="button" value="id"><span id="sort-label" data-sort-label>ID</span></button>
+            <button tabindex="-1" id="sort" class="sort-toggle" type="button" value="id"><span id="sort-label" data-cycle-label>ID</span></button>
             <span class="shuffle-slot"><button tabindex="-1" id="shuffle" class="icon-button" type="button" aria-label="Shuffle sort order" title="Shuffle sort order" hidden></button></span>
           </div>
           <div class="filter-row">
@@ -66,6 +66,10 @@
           <div class="filter-row">
             <span class="filter-label">Surround</span>
             <button tabindex="-1" class="surround icon-button" type="button" aria-label="Switch to light surround"></button>
+          </div>
+          <div class="filter-row">
+            <span class="filter-label">Status</span>
+            <button tabindex="-1" id="status" class="sort-toggle status-toggle" type="button" value="all"><span data-cycle-label>All</span></button>
           </div>
           <button id="collapse-toolbar" class="toolbar-collapse icon-button" type="button" tabindex="-1" aria-label="Hide toolbar" title="Hide toolbar"></button>
           <label hidden>Show <select tabindex="-1" id="collection"><option value="all">All works</option><option value="saved">Favourites</option></select></label>
@@ -98,6 +102,7 @@
         <dl id="work-data" class="work-stats work-data">
           <dt>Colours</dt><dd id="work-colors" class="swatches"></dd>
           <dt>Marks</dt><dd id="work-marks"></dd>
+          <dt>Status</dt><dd><a tabindex="-1" id="work-status"></a></dd>
         </dl>
         <button tabindex="-1" id="favourite" type="button" aria-pressed="false" hidden>Save favourite</button>
         <div class="work-tools">
