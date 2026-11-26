@@ -23,10 +23,10 @@
       try { const s = localStorage.getItem('serac-surround') ?? localStorage.getItem('serac-theme'); if (s === 'light' || s === 'dark') document.documentElement.dataset.surround = s; } catch {}
       if (document.documentElement.dataset.surround === 'light') document.querySelector('meta[name="theme-color"]').content = '#ffffff';
     </script>
-    <script type="module" crossorigin src="./assets/gallery-DkbrQnUx.js"></script>
+    <script type="module" crossorigin src="./assets/gallery-mqjD0mc9.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/preload-helper-kNaey6uv.js">
     <link rel="modulepreload" crossorigin href="./assets/asset-host-aocIzUO1.js">
-    <link rel="stylesheet" crossorigin href="./assets/gallery-WYpTvyLW.css">
+    <link rel="stylesheet" crossorigin href="./assets/gallery-DyFg4i-I.css">
   </head>
   <body class="gallery-page">
     <div class="site-toolbar">
@@ -96,25 +96,24 @@
           <dt>Style</dt><dd><a tabindex="-1" id="work-style"></a></dd>
           <dt>Palette</dt><dd><a tabindex="-1" id="work-palette"></a></dd>
           <dt>Seed</dt><dd id="work-seed"></dd>
-          <dt>Colour space</dt><dd id="work-space"></dd>
         </dl>
         <dl id="work-data" class="work-stats work-data">
           <dt>Colours</dt><dd id="work-colors" class="swatches"></dd>
           <dt>Marks</dt><dd id="work-marks"></dd>
-          <dt>Type</dt><dd id="work-type"></dd>
+          <dt>Details</dt><dd id="work-type"></dd>
         </dl>
         <button tabindex="-1" id="favourite" type="button" aria-pressed="false" hidden>Save favourite</button>
         <div class="work-tools">
           <!-- The Render button is hidden for now; clicking the artwork, or ticking Animate, does the same. -->
           <span class="work-action" hidden><button tabindex="-1" id="replay" type="button">Render</button><span id="replay-progress" class="action-progress" role="progressbar" aria-label="Drawing progress" aria-valuemin="0" aria-valuemax="100" hidden></span></span>
-          <span class="work-action"><button tabindex="-1" id="save-image" type="button">Download PNG</button><span id="save-progress" class="action-progress" role="progressbar" aria-label="Download progress" aria-valuemin="0" aria-valuemax="100" hidden></span></span>
+          <span class="work-action"><button tabindex="-1" id="save-image" type="button">Download</button><span id="save-progress" class="action-progress" role="progressbar" aria-label="Download progress" aria-valuemin="0" aria-valuemax="100" hidden></span></span>
           <a tabindex="-1" id="verse-link" target="_blank" rel="noopener">Verse</a>
           <button tabindex="-1" id="share" type="button">Share</button>
           <button id="animate" tabindex="-1" class="animate-toggle" type="button" role="checkbox" aria-checked="true"><span>Animate</span></button>
         </div>
       </aside>
     </dialog>
-    <!-- Opened by Shift-clicking Download PNG in the work view. -->
+    <!-- Opened by Shift-clicking Download in the work view. -->
     <dialog id="print-export" class="print-export gallery-surround" aria-labelledby="print-title">
       <form id="print-form" class="print-panel">
         <button id="print-close" class="print-close icon-button" type="button" tabindex="-1" aria-label="Close (Escape)"></button>
