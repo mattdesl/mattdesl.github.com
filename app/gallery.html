@@ -23,10 +23,10 @@
       try { const s = localStorage.getItem('serac-surround') ?? localStorage.getItem('serac-theme'); if (s === 'light' || s === 'dark') document.documentElement.dataset.surround = s; } catch {}
       if (document.documentElement.dataset.surround === 'light') document.querySelector('meta[name="theme-color"]').content = '#ffffff';
     </script>
-    <script type="module" crossorigin src="./assets/gallery-CXosfPUZ.js"></script>
+    <script type="module" crossorigin src="./assets/gallery-DfRjufsC.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/preload-helper-kNaey6uv.js">
     <link rel="modulepreload" crossorigin href="./assets/asset-host-aocIzUO1.js">
-    <link rel="stylesheet" crossorigin href="./assets/gallery-BI_vkAhA.css">
+    <link rel="stylesheet" crossorigin href="./assets/gallery-D2vt8k0z.css">
   </head>
   <body class="gallery-page">
     <div class="site-toolbar">
@@ -107,6 +107,8 @@
           <!-- The Render button is hidden for now; clicking the artwork, or ticking Animate, does the same. -->
           <span class="work-action" hidden><button tabindex="-1" id="replay" type="button">Render</button><span id="replay-progress" class="action-progress" role="progressbar" aria-label="Drawing progress" aria-valuemin="0" aria-valuemax="100" hidden></span></span>
           <span class="work-action"><button tabindex="-1" id="save-image" type="button">Download</button><span id="save-progress" class="action-progress" role="progressbar" aria-label="Download progress" aria-valuemin="0" aria-valuemax="100" hidden></span></span>
+          <!-- Shown beside Download Print while Shift is held, in browsers with WebCodecs, and while a video is being made. -->
+          <span id="video-action" class="work-action" hidden><button tabindex="-1" id="save-video" type="button">Export Video</button><span id="video-progress" class="action-progress" role="progressbar" aria-label="Video progress" aria-valuemin="0" aria-valuemax="100" hidden></span></span>
           <a tabindex="-1" id="verse-link" target="_blank" rel="noopener">Verse</a>
           <button tabindex="-1" id="share" type="button">Share</button>
           <button id="animate" tabindex="-1" class="animate-toggle" type="button" role="checkbox" aria-checked="true"><span>Animate</span></button>
