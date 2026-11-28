@@ -23,10 +23,10 @@
       try { const s = localStorage.getItem('serac-surround') ?? localStorage.getItem('serac-theme'); if (s === 'light' || s === 'dark') document.documentElement.dataset.surround = s; } catch {}
       if (document.documentElement.dataset.surround === 'light') document.querySelector('meta[name="theme-color"]').content = '#ffffff';
     </script>
-    <script type="module" crossorigin src="./assets/gallery-DfRjufsC.js"></script>
+    <script type="module" crossorigin src="./assets/gallery-DVJclMBi.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/preload-helper-kNaey6uv.js">
     <link rel="modulepreload" crossorigin href="./assets/asset-host-aocIzUO1.js">
-    <link rel="stylesheet" crossorigin href="./assets/gallery-D2vt8k0z.css">
+    <link rel="stylesheet" crossorigin href="./assets/gallery-BmwniPBy.css">
   </head>
   <body class="gallery-page">
     <div class="site-toolbar">
@@ -107,7 +107,7 @@
           <!-- The Render button is hidden for now; clicking the artwork, or ticking Animate, does the same. -->
           <span class="work-action" hidden><button tabindex="-1" id="replay" type="button">Render</button><span id="replay-progress" class="action-progress" role="progressbar" aria-label="Drawing progress" aria-valuemin="0" aria-valuemax="100" hidden></span></span>
           <span class="work-action"><button tabindex="-1" id="save-image" type="button">Download</button><span id="save-progress" class="action-progress" role="progressbar" aria-label="Download progress" aria-valuemin="0" aria-valuemax="100" hidden></span></span>
-          <!-- Shown beside Download Print while Shift is held, in browsers with WebCodecs, and while a video is being made. -->
+          <!-- Shown beside Download Settings while Shift is held, in browsers with WebCodecs, and while a video is being made. -->
           <span id="video-action" class="work-action" hidden><button tabindex="-1" id="save-video" type="button">Export Video</button><span id="video-progress" class="action-progress" role="progressbar" aria-label="Video progress" aria-valuemin="0" aria-valuemax="100" hidden></span></span>
           <a tabindex="-1" id="verse-link" target="_blank" rel="noopener">Verse</a>
           <button tabindex="-1" id="share" type="button">Share</button>
@@ -119,18 +119,19 @@
     <dialog id="print-export" class="print-export gallery-surround" aria-labelledby="print-title">
       <form id="print-form" class="print-panel">
         <button id="print-close" class="print-close icon-button" type="button" tabindex="-1" aria-label="Close (Escape)"></button>
-        <h2 id="print-title">Download Print</h2>
-        <div class="print-row">
-          <label for="print-height">Height (px)</label>
-          <input id="print-height" type="number" step="1" inputmode="numeric" autocomplete="off" />
-        </div>
+        <h2 id="print-title">Download Settings</h2>
         <dl class="print-sizes">
           <dt>DPI</dt><dd id="print-dpi"></dd>
-          <dt>Canvas Size</dt><dd id="print-canvas"></dd>
-          <dt>Print Size</dt><dd id="print-physical"></dd>
+          <dt>Image Size</dt><dd id="print-canvas"></dd>
+          <dt><label for="print-length-width">Width</label></dt>
+          <dd class="print-length"><input id="print-length-width" class="print-length-input" type="number" step="any" min="0" inputmode="decimal" autocomplete="off" /><select id="print-unit-width" class="print-unit" tabindex="-1" aria-label="Width unit"></select></dd>
+          <dt><label for="print-length-height">Height</label></dt>
+          <dd class="print-length"><input id="print-length-height" class="print-length-input" type="number" step="any" min="0" inputmode="decimal" autocomplete="off" /><select id="print-unit-height" class="print-unit" tabindex="-1" aria-label="Height unit"></select></dd>
+          <dt>Preset</dt>
+          <dd id="print-presets" class="print-presets"></dd>
         </dl>
-        <div class="print-row"><button id="print-go" type="submit" tabindex="-1">Export</button><span id="print-progress" class="action-progress" aria-live="polite"></span></div>
         <p id="print-message" class="print-message" aria-live="polite"></p>
+        <div class="print-row"><button id="print-go" type="submit" tabindex="-1">Export</button><span id="print-progress" class="action-progress" aria-live="polite"></span></div>
       </form>
     </dialog>
     <!-- Cloudflare Web Analytics: cookieless visitor counts. Only loaded on the live site, so local development
